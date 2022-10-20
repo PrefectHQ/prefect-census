@@ -78,6 +78,5 @@ if __name__ == "__main__":
 
     c = census_creds_block.get_client()
     # r = asyncio.run(c.call_endpoint(http_method="GET", path=f"/api/v1/syncs/38417"))
-    # print(type(r.json()["data"]))
     # asyncio.run(get_census_sync_run_info(census_creds_block, sync_id=38417))
-    print(asyncio.run(trigger_census_sync(census_creds_block, sync_id=38417)))
+    asyncio.run(trigger_census_sync(census_creds_block, sync_id=38417))
