@@ -147,5 +147,6 @@ async def wait_census_sync_completion(
 
 if __name__ == "__main__":
     import asyncio
-    credentials = CensusCredentials(api_key="secret-token:94Vh6rAP3TxW9sJrbftX96K9")
+    import os
+    credentials = CensusCredentials(api_key=os.getenviron["CENSUS_API_KEY"])
     print(asyncio.run(wait_census_sync_completion(run_id=69786658, credentials=credentials)))
