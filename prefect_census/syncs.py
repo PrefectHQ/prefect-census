@@ -5,10 +5,6 @@ from httpx import HTTPStatusError
 from prefect.logging import get_run_logger
 from utils import extract_user_message
 
-class CensusGetSyncRunInfoFailed(RuntimeError):
-    """Used to idicate retrieve sync run info."""
-
-    pass
 
 
 class CensusSyncTriggerFailed(RuntimeError):
@@ -17,51 +13,6 @@ class CensusSyncTriggerFailed(RuntimeError):
     pass
 
 
-@task(
-    name="Get Census sync run details",
-    description="Retrieves details of a Census sync run"
-    "for the sync with the given sync_id.",
-    retries=3,
-    retry_delay_seconds=10
-)
-async def get_census_sync_run_info(credentials: CensusCredentials, sync_id: int):
-    """
-    A task to retrieve information a Census sync run.
-    
-    Args:
-        credentials: Credentials for authenticating with Census.
-        sync_id: The ID of the sync to trigger.
-        
-    Returns:
-        The run data returned by the Census API.
-        
-    Example:
-        Get Census sync run info:
-        ```python
-        from prefect import flow
-        
-        from prefect_census.credentials import CensusCredentials
-        from prefect_census.syncs import get_census_sync_run_info
-
-        @flow
-        def get_sync_run_info_flow():
-            credentials = CensusCredentials(api_key="my_api")
-            
-            return get_census_sync_run_info(
-                credentials=credentials,
-                sync_id=42
-            )
-
-        get_sync_run_info_flow()
-        ```
-    """  # noqa
-    try:
-        async with credentials.get_client() as client:
-            response = await client.get_run_info(sync_id)
-    except HTTPStatusError as e:
-        raise CensusGetSyncRunInfoFailed(extract_user_message(e)) from e
-
-    return response.json()["data"]
 
 
 @task(

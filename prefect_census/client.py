@@ -41,17 +41,17 @@ class CensusClient:
         response.raise_for_status()
         return response # status code?
 
-    async def get_run_info(self, sync_id: int):
+    async def get_run_info(self, run_id: int):
         """
         Sends a request to the [get sync id info endpoint](https://docs.getcensus.com/basics/api/syncs#get-syncs-id)
         
         Args:
-            sync_id: The ID of the sync to get details for.
+            run_id: The ID of the sync run to get details for.
             
         Returns:
             The response from the Census API.
         """  # noqa
-        return await self.call_endpoint(http_method="GET", path=f"/api/v1/syncs/{sync_id}")
+        return await self.call_endpoint(http_method="GET", path=f"/api/v1/sync_runs/{run_id}")
 
     async def trigger_sync_run(self, sync_id: int):
         """
@@ -69,6 +69,7 @@ class CensusClient:
             http_method="POST",
             path=f"/api/v1/syncs/{sync_id}/trigger"
         )
+        # does it return ID of the sync run?
 
     async def __aenter__(self):
         if self._closed:
