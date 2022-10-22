@@ -29,7 +29,7 @@ class CensusCredentials(Block):
         from prefect import flow
         from prefect_census.credentials import CensusCredentials
 
-        credentials = CensusCredentials(api_key="my-api-key")
+        credentials = CensusCredentials(api_key="my_api_key")
 
         @flow
         async def trigger_sync_run_flow(): 
