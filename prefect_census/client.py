@@ -39,7 +39,7 @@ class CensusClient:
             method=http_method, url=path, params=params,
         )
         response.raise_for_status()
-        return response # status code?
+        return response
 
     async def get_run_info(self, run_id: int):
         """
@@ -71,7 +71,6 @@ class CensusClient:
             http_method="POST",
             path=f"/api/v1/syncs/{sync_id}/trigger"
         )
-        # does it return ID of the sync run?
 
     async def __aenter__(self):
         if self._closed:
