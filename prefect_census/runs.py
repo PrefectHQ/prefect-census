@@ -1,9 +1,3 @@
-# add wait_census_sync_completion flow
-# https://github.com/PrefectHQ/prefect-dbt/blob/e3ff884ec348aaf95b8dd842dd90bf7276011db4/prefect_dbt/cloud/runs.py#L267
-
-# trigger_census_sync_and_wait_for_completion flow
-# https://github.com/PrefectHQ/prefect-dbt/blob/e3ff884ec348aaf95b8dd842dd90bf7276011db4/prefect_dbt/cloud/jobs.py#L179
-
 """Module containing tasks and flows for interacting with Census sync runs"""
 import asyncio
 from enum import Enum
@@ -112,9 +106,9 @@ async def get_census_sync_run_info(credentials: CensusCredentials, run_id: int):
 async def wait_census_sync_completion(
     run_id: int,
     credentials: CensusCredentials,
-    max_wait_seconds: int = 900, # start at 900
+    max_wait_seconds: int = 900,
     poll_frequency_seconds: int = 10,
-): # what will it return?
+) -> tuple[CensusSyncRunStatus, dict]:
     """
     Wait for the given Census sync run to finish running.
     
@@ -161,9 +155,3 @@ async def wait_census_sync_completion(
         f"Max wait time of {max_wait_seconds} seconds exceeded while waiting "
         f"for sync run with ID {run_id}"
     )
-
-if __name__ == "__main__":
-    import asyncio
-    import os
-    credentials = CensusCredentials(api_key=os.environ["CENSUS_API_KEY"])
-    print(asyncio.run(wait_census_sync_completion(run_id=69786658, credentials=credentials)))

@@ -1,13 +1,11 @@
 """Module containing tasks and flows for interacting with Census syncs."""
-from asyncore import poll
-from typing import final
+
 from prefect import flow, task
 from credentials import CensusCredentials
 from httpx import HTTPStatusError
 from prefect.logging import get_run_logger
 from prefect_census.runs import CensusSyncRunStatus, CensusSyncRunFailed, CensusSyncRunCancelled, wait_census_sync_completion
 from prefect_census.utils import extract_user_message
-
 
 
 class CensusSyncTriggerFailed(RuntimeError):
@@ -215,18 +213,3 @@ async def trigger_census_sync_run_and_wait_for_completion(
             f"Triggered sync run with ID: {run_id} ended with unexpected"
             f"status {final_run_status}"
         )
-
-
-if __name__ == "__main__":
-    import asyncio
-    import os
-    # credentials = CensusCredentials(api_key=os.environ["CENSUS_API_KEY"])
-    # print(asyncio.run(trigger_census_sync_run_and_wait_for_completion(sync_id=38417, credentials=credentials)))
-    @flow
-    def my_flow():
-        creds = CensusCredentials(api_key=os.environ["CENSUS_API_KEY"])
-        run_result = trigger_census_sync_run_and_wait_for_completion(
-            credentials=creds,
-            sync_id=38417
-        )
-    my_flow()
