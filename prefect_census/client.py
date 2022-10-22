@@ -43,7 +43,8 @@ class CensusClient:
 
     async def get_run_info(self, run_id: int):
         """
-        Sends a request to the [get sync id info endpoint](https://docs.getcensus.com/basics/api/syncs#get-syncs-id)
+        Sends a request to the [get sync id info endpoint]
+        (https://docs.getcensus.com/basics/api/syncs#get-syncs-id)
         
         Args:
             run_id: The ID of the sync run to get details for.
@@ -55,7 +56,8 @@ class CensusClient:
 
     async def trigger_sync_run(self, sync_id: int):
         """
-        Sends a request to the [trigger sync run endpoint](https://docs.getcensus.com/basics/api/sync-runs)
+        Sends a request to the [trigger sync run endpoint]
+        (https://docs.getcensus.com/basics/api/sync-runs)
         to initiate a sync run.
         
         Args:
