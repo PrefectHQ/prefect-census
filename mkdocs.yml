@@ -51,4 +51,5 @@ nav:
     - Client: client.md
     - Credentials: credentials.md
     - Syncs: syncs.md
+    - Runs: runs.md
 
