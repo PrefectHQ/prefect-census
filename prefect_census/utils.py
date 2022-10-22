@@ -1,4 +1,3 @@
-
 """Utilities for common interactions with the Census API"""
 from httpx import HTTPStatusError
 from typing import Optional

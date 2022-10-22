@@ -1,5 +1,4 @@
 """Module containing tasks and flows for interacting with Census syncs."""
-
 from prefect import flow, task
 from credentials import CensusCredentials
 from httpx import HTTPStatusError
