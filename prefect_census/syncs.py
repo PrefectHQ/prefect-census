@@ -37,7 +37,30 @@ async def trigger_census_sync(
 
     Returns:
         The run data returned from the Census API.
-
+        Keys:
+            - status
+            - data
+                - id
+                - sync_id
+                - source_record_count
+                - records_processed
+                - records_updated
+                - records_failed
+                - records_invalid
+                - created_at
+                - updated_at
+                - completed_at
+                - scheduled_execution_time
+                - error_code
+                - error_message
+                - error_detail
+                - status
+                - canceled
+                - full_sync
+                - sync_trigger_reason
+                - ui_tag
+                - ui_detail
+                
     Examples:
         Trigger a Census sync run:
         ```python
@@ -145,6 +168,10 @@ async def trigger_census_sync_run_and_wait_for_completion(
 
     Returns:
         The run data returned by the Census API.
+        Keys: 
+            - status
+            - data
+                sync_run_id
 
     Examples:
         Trigger a Census sync using CensusCredentials instance and wait
