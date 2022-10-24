@@ -21,7 +21,7 @@ class CensusSyncTriggerFailed(RuntimeError):
 
 @task(
     name="Trigger Census sync run",
-    description="Triggers a Census sync run for the sync " "with the given sync_id.",
+    description="Triggers a Census sync run for the sync with the given sync_id.",
     retries=3,
     retry_delay_seconds=10,
 )
