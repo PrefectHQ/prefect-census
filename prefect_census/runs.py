@@ -1,12 +1,14 @@
 """Module containing tasks and flows for interacting with Census sync runs"""
 import asyncio
+
 from enum import Enum
 from httpx import HTTPStatusError
 from pkg_resources import working_set
 from prefect import flow, task
+
 from prefect.logging import get_run_logger
-from credentials import CensusCredentials
-from utils import extract_user_message
+from prefect_census.credentials import CensusCredentials
+from prefect_census.utils import extract_user_message
 
 
 class CensusSyncRunFailed(RuntimeError):
