@@ -43,7 +43,7 @@ class CensusClient:
         response.raise_for_status()
         return response
 
-    async def get_run_info(self, run_id: int):
+    async def get_run_info(self, run_id: int) -> Response:
         """
         Sends a request to the [get sync id info endpoint]
         (https://docs.getcensus.com/basics/api/syncs#get-syncs-id)
