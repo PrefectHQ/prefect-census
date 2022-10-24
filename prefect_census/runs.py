@@ -35,7 +35,6 @@ class CensusGetSyncRunInfoFailed(RuntimeError):
 class CensusSyncRunCancelled(Exception):
     """Raised when a triggered sync run is cancelled"""
 
-    pass
 
 
 class CensusSyncRunStatus(Enum):
