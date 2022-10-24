@@ -27,7 +27,7 @@ class TestTriggerCensusSyncRun:
             headers={"Authorization": "Bearer my_api_key"},
         ).mock(
             return_value=Response(
-                200, json={"data": {"sync_run_id": 45, "project_id": 12345}}
+                200, json={"data": {"sync_run_id": 45}}
             )
         )
 
