@@ -28,7 +28,6 @@ class CensusSyncRunTimeout(RuntimeError):
 class CensusGetSyncRunInfoFailed(RuntimeError):
     """Used to idicate retrieve sync run info."""
 
-    pass
 
 
 class CensusSyncRunCancelled(Exception):
