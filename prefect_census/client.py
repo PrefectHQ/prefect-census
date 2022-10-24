@@ -6,7 +6,7 @@ class CensusClient:
     """
     Client for interacting with the Census API.
 
-    Args:
+    Attributes:
         api_key: API key to authenticate with the Census API.
     """
 
