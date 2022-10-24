@@ -144,7 +144,6 @@ async def wait_census_sync_completion(
         run_data = await run_data_future.result()
         run_status = run_data.get("status")
 
-        print("run_status:", run_status)
 
         if CensusSyncRunStatus.is_terminal_status_code(run_status):
             return CensusSyncRunStatus(run_status), run_data
