@@ -1,5 +1,4 @@
 """Module containing client for interacting with the Census API"""
-from os import sync
 from typing import Any, Dict, Optional
 
 import prefect
