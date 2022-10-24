@@ -30,7 +30,7 @@ class CensusClient:
         Args:
             http_method: HTTP method to call on the endpoint.
             path: The partial path for request (e.g. //api/v1/syncs/42). Will be
-            appended onto the base URL as determined by the client configuration.
+                appended onto the base URL as determined by the client configuration.
 
         Returns:
             The response from the Census API.
