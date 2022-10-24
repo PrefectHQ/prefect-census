@@ -1,8 +1,10 @@
 """Module containing client for interacting with the Census API"""
+from os import sync
 from typing import Any, Dict, Optional
 
 import prefect
 from httpx import AsyncClient, Response
+from prefect.utilities.asyncutils import sync_compatible
 
 
 class CensusClient:
@@ -25,6 +27,7 @@ class CensusClient:
             },
         )
 
+    @sync_compatible
     async def call_endpoint(
         self,
         http_method: str,
@@ -52,6 +55,7 @@ class CensusClient:
         response.raise_for_status()
         return response
 
+    @sync_compatible
     async def get_run_info(self, run_id: int) -> Response:
         """
         Sends a request to the [get sync id info endpoint]
@@ -68,6 +72,7 @@ class CensusClient:
             path=f"/sync_runs/{run_id}",
         )
 
+    @sync_compatible
     async def trigger_sync_run(
         self, sync_id: int, force_full_sync: bool = False
     ) -> Response:
