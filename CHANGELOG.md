@@ -8,12 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 
 ### Added
-- `trigger_census_sync` task - [#10](https://github.com/PrefectHQ/prefect-dbt/pull/10)
-- `get_census_sync_run_info` task - [#10](https://github.com/PrefectHQ/prefect-dbt/pull/10)
-- `CensusCredentials` block - [#10](https://github.com/PrefectHQ/prefect-dbt/pull/10)
-- `CensusClient` - [#10](https://github.com/PrefectHQ/prefect-dbt/pull/10)
-- `wait_census_sync_completion` flow - [#10](https://github.com/PrefectHQ/prefect-dbt/pull/10)
-- `trigger_census_sync_and_wait_for_completion` flow - [#10](https://github.com/PrefectHQ/prefect-dbt/pull/10)
+- `trigger_census_sync` task - [#10](https://github.com/PrefectHQ/prefect-census/pull/10)
+- `get_census_sync_run_info` task - [#10](https://github.com/PrefectHQ/prefect-census/pull/10)
+- `CensusCredentials` block - [#10](https://github.com/PrefectHQ/prefect-census/pull/10)
+- `CensusClient` - [#10](https://github.com/PrefectHQ/prefect-census/pull/10)
+- `wait_census_sync_completion` flow - [#10](https://github.com/PrefectHQ/prefect-census/pull/10)
+- `trigger_census_sync_and_wait_for_completion` flow - [#10](https://github.com/PrefectHQ/prefect-census/pull/10)
 
 ### Changed
 
