@@ -65,7 +65,7 @@ class TestTriggerCensusSyncRunAndWaitForCompletion:
 
         respx_mock.get(
             "https://app.getcensus.com/api/v1/sync_runs/12345",  # noqa
-            headers={"Authorization": f"Bearer my_api_key"},
+            headers={"Authorization": "Bearer my_api_key"},
         ).mock(
             return_value=Response(
                 200,
@@ -89,7 +89,7 @@ class TestTriggerCensusSyncRunAndWaitForCompletion:
 
         respx_mock.get(
             "https://app.getcensus.com/api/v1/sync_runs/12345",  # noqa
-            headers={"Authorization": f"Bearer my_api_key"},
+            headers={"Authorization": "Bearer my_api_key"},
         ).mock(
             return_value=Response(
                 200,
@@ -117,7 +117,7 @@ class TestTriggerCensusSyncRunAndWaitForCompletion:
 
         respx_mock.get(
             "https://app.getcensus.com/api/v1/sync_runs/12345",  # noqa
-            headers={"Authorization": f"Bearer my_api_key"},
+            headers={"Authorization": "Bearer my_api_key"},
         ).mock(
             side_effect=[
                 Response(
@@ -153,7 +153,7 @@ class TestTriggerCensusSyncRunAndWaitForCompletion:
 
         respx_mock.get(
             "https://app.getcensus.com/api/v1/sync_runs/12345",  # noqa
-            headers={"Authorization": f"Bearer my_api_key"},
+            headers={"Authorization": "Bearer my_api_key"},
         ).mock(
             side_effect=[
                 Response(
@@ -199,7 +199,7 @@ class TestTriggerCensusSyncRunAndWaitForCompletion:
 
         respx_mock.get(
             "https://app.getcensus.com/api/v1/sync_runs/12345",  # noqa
-            headers={"Authorization": f"Bearer my_api_key"},
+            headers={"Authorization": "Bearer my_api_key"},
         ).mock(
             side_effect=[
                 Response(
@@ -234,7 +234,7 @@ class TestTriggerCensusSyncRunAndWaitForCompletion:
 
         respx_mock.get(
             "https://app.getcensus.com/api/v1/sync_runs/12345",  # noqa
-            headers={"Authorization": f"Bearer my_api_key"},
+            headers={"Authorization": "Bearer my_api_key"},
         ).mock(
             side_effect=[
                 Response(

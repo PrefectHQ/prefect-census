@@ -3,7 +3,6 @@ import asyncio
 from enum import Enum
 
 from httpx import HTTPStatusError
-from pkg_resources import working_set
 from prefect import flow, task
 from prefect.logging import get_run_logger
 
@@ -123,7 +122,8 @@ async def wait_census_sync_completion(
         run_id: The ID of the sync run to wait for.
         credentials: Credentials for authenticating with Census.
         max_wait_seconds: Maximum number of seconds to wait for sync to complete.
-        poll_frequency_seconds: Number of seconds to wait in between checks for run completion.
+        poll_frequency_seconds: Number of seconds to wait in between checks for
+            run completion.
 
     Raises:
         CensusSyncRunTimeout: When the elapsed wait time exceeds `max_wait_seconds`.
@@ -150,7 +150,7 @@ async def wait_census_sync_completion(
 
         wait_for = [run_data_future]
         logger.info(
-            f"Census sync run with ID %i has status %s. Waiting for %i seconds.",
+            "Census sync run with ID %i has status %s. Waiting for %i seconds.",
             run_id,
             CensusSyncRunStatus(run_status),
             poll_frequency_seconds,

@@ -17,7 +17,7 @@ class CensusClient:
         self._started = False
 
         self.client = AsyncClient(
-            base_url=f"https://app.getcensus.com",
+            base_url="https://app.getcensus.com",
             headers={"Authorization": f"Bearer {api_key}"},
         )
 
