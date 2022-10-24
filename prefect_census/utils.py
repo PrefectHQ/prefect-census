@@ -13,7 +13,7 @@ def extract_user_message(error: HTTPStatusError) -> Optional[str]:
 
     Returns:
         The status from Census API response or None if a status cannot
-        be extraacted.
+            be extracted.
     """
     response_payload = error.response.json()
     status = response_payload.get("status", {})
