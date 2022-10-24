@@ -77,7 +77,7 @@ async def get_census_sync_run_info(credentials: CensusCredentials, run_id: int):
         ```python
         from prefect import flow
 
-        from prefect_census.credentials import CensusCredentials
+        from prefect_census import CensusCredentials
         from prefect_census.runs import get_census_sync_run_info
 
         @flow

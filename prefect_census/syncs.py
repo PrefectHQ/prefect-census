@@ -43,7 +43,7 @@ async def trigger_census_sync(
         ```python
         from prefect import flow
 
-        from prefect_census.credentials import CensusCredentials
+        from prefect_census import CensusCredentials
         from prefect_census.syncs import trigger_census_sync
 
         @flow
@@ -92,7 +92,7 @@ def get_run_id(obj: Dict[str, Any]) -> int:
     Example:
         ```python
         from prefect import flow
-        from prefect_census.credentials import CensusCredentials
+        from prefect_census import CensusCredentials
         from prefect_census.syncs import trigger_census_sync_run, get_run_id
 
 
@@ -152,7 +152,7 @@ async def trigger_census_sync_run_and_wait_for_completion(
         ```python
         import asyncio
 
-        from prefect_census.credentials import CensusCredentials
+        from prefect_census import CensusCredentials
         from prefect_census.syncs import trigger_census_sync_run_and_wait_for_completion
 
         asyncio.run(
@@ -169,7 +169,7 @@ async def trigger_census_sync_run_and_wait_for_completion(
         ```python
         from prefect import flow
 
-        from prefect_census.credentials import CensusCredentials
+        from prefect_census import CensusCredentials
         from prefect_census.syncs import trigger_census_sync_run_and_wait_for_completion
 
         @flow

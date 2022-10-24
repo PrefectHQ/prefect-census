@@ -28,7 +28,7 @@ class CensusCredentials(Block):
         ```python
         import asyncio
         from prefect import flow
-        from prefect_census.credentials import CensusCredentials
+        from prefect_census import CensusCredentials
 
         credentials = CensusCredentials(api_key="my_api_key")
 
@@ -44,7 +44,7 @@ class CensusCredentials(Block):
         ```python
         from prefect import flow
 
-        from prefect_census.credentials import CensusCredentials
+        from prefect_census import CensusCredentials
         from prefect_census.syncs import trigger_census_sync
 
         @flow
