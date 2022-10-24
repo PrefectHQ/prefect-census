@@ -108,8 +108,8 @@ async def get_census_sync_run_info(credentials: CensusCredentials, run_id: int):
 async def wait_census_sync_completion(
     run_id: int,
     credentials: CensusCredentials,
-    max_wait_seconds: int = 900,
-    poll_frequency_seconds: int = 10,
+    max_wait_seconds: int = 60,
+    poll_frequency_seconds: int = 5,
 ) -> tuple[CensusSyncRunStatus, dict]:
     """
     Wait for the given Census sync run to finish running.
