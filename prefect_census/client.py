@@ -58,7 +58,7 @@ class CensusClient:
             http_method="GET", path=f"/api/v1/sync_runs/{run_id}"
         )
 
-    async def trigger_sync_run(self, sync_id: int):
+    async def trigger_sync_run(self, sync_id: int) -> Response:
         """
         Sends a request to the [trigger sync run endpoint]
         (https://docs.getcensus.com/basics/api/sync-runs)
