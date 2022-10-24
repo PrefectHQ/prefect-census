@@ -1,6 +1,6 @@
 """Module containing client for interacting with the Census API"""
 from httpx import AsyncClient, Response
-
+from typing import Any, Dict, Optional
 
 class CensusClient:
     """
@@ -15,7 +15,7 @@ class CensusClient:
         self._started = False
 
         self.client = AsyncClient(
-            base_url="https://app.getcensus.com",
+            base_url="https://app.getcensus.com/api/v1",
             headers={"Authorization": f"Bearer {api_key}"},
         )
 
@@ -23,6 +23,8 @@ class CensusClient:
         self,
         http_method: str,
         path: str,
+        params: Optional[Dict[str, Any]] = None,
+        json: Optional[Dict[str, Any]] = None
     ) -> Response:
         """
         Call an endpoint in the Census API.
@@ -31,14 +33,16 @@ class CensusClient:
             http_method: HTTP method to call on the endpoint.
             path: The partial path for request (e.g. //api/v1/syncs/42). Will be
                 appended onto the base URL as determined by the client configuration.
+            params: Query parameters to include in the request.
+            json: JSON serializable body to send in the request.
 
         Returns:
             The response from the Census API.
         """
 
         response = await self.client.request(
-            method=http_method,
-            url=path,
+            method=http_method, url=path, params=params, json=json
+
         )
         response.raise_for_status()
         return response
@@ -55,10 +59,11 @@ class CensusClient:
             The response from the Census API.
         """  # noqa
         return await self.call_endpoint(
-            http_method="GET", path=f"/api/v1/sync_runs/{run_id}"
+            http_method="GET", 
+            path=f"/sync_runs/{run_id}",
         )
 
-    async def trigger_sync_run(self, sync_id: int) -> Response:
+    async def trigger_sync_run(self, sync_id: int, force_full_sync: bool = False) -> Response:
         """
         Sends a request to the [trigger sync run endpoint]
         (https://docs.getcensus.com/basics/api/sync-runs)
@@ -66,13 +71,15 @@ class CensusClient:
 
         Args:
             sync_id: The ID of the sync to trigger.
+            force_full_sync: If thee sync should perform a full sync
 
         Returns:
             The response from the Census API.
-        """  # noqa
-
+        """
         return await self.call_endpoint(
-            http_method="POST", path=f"/api/v1/syncs/{sync_id}/trigger"
+            http_method="POST", 
+            path=f"/syncs/{sync_id}/trigger",
+            params={"force_full_sync": force_full_sync}
         )
 
     async def __aenter__(self):
