@@ -25,7 +25,7 @@ class CensusSyncTriggerFailed(RuntimeError):
     retries=3,
     retry_delay_seconds=10,
 )
-async def trigger_census_sync(credentials: CensusCredentials, sync_id: int) -> dict:
+async def trigger_census_sync(credentials: CensusCredentials, sync_id: int) -> Dict[str, Any]:
     """
     A task to trigger a Census sync run.
 
