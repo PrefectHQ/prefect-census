@@ -57,7 +57,7 @@ class CensusCredentials(Block):
     """
 
     _block_type_name = "Census Credentials"
-    _logo_url = "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/llmjpn8a0pgu8szjmnyi"  # noqa
+    _logo_url = "https://images.ctfassets.net/gm98wzqotmnx/3oznRx2UFkd2XyqNkEZpzB/4e0967a828aec5e2527cedadf8d24e8a/llmjpn8a0pgu8szjmnyi.webp?h=250"  # noqa
 
     api_key: SecretStr
 
