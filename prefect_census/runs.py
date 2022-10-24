@@ -1,7 +1,7 @@
 """Module containing tasks and flows for interacting with Census sync runs"""
 import asyncio
 from enum import Enum
-from typing import Tuple
+from typing import Any, Dict, Tuple
 
 from httpx import HTTPStatusError
 from prefect import flow, task
@@ -110,7 +110,7 @@ async def wait_census_sync_completion(
     credentials: CensusCredentials,
     max_wait_seconds: int = 60,
     poll_frequency_seconds: int = 5,
-) -> Tuple[CensusSyncRunStatus, dict]:
+) -> Tuple[CensusSyncRunStatus, Dict[str, Any]]:
     """
     Wait for the given Census sync run to finish running.
 
