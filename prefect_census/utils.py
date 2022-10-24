@@ -12,7 +12,7 @@ def extract_user_message(error: HTTPStatusError) -> Optional[str]:
         error: An HTTPStatusError raised by httpx
 
     Returns:
-        status from Census API response or None if a status cannot
+        The status from Census API response or None if a status cannot
         be extraacted.
     """
     response_payload = error.response.json()
