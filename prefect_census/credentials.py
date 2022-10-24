@@ -11,10 +11,10 @@ class CensusCredentials(Block):
     Credentials block for credential use across Census tasks and flows.
 
     Attributes:
-        api_key (SecretStr): API key to authenticate with the Census
-        API. Refer to the [Authentication docs](
-        https://docs.getcensus.com/basics/api#getting-api-access)
-        for retrieving the API key.
+        api_key: API key to authenticate with the Census
+            API. Refer to the [Authentication docs](
+            https://docs.getcensus.com/basics/api#getting-api-access)
+            for retrieving the API key.
 
     Examples:
         Load stored Census credentials:
