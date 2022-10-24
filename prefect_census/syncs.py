@@ -16,7 +16,6 @@ from prefect_census.utils import extract_user_message
 class CensusSyncTriggerFailed(RuntimeError):
     """Used to indicate sync triggered."""
 
-    pass
 
 
 @task(
