@@ -125,6 +125,7 @@ async def wait_census_sync_completion(
         CensusSyncRunTimeout: When the elapsed wait time exceeds `max_wait_seconds`.
 
     Returns:
+        run_status: An enum representing the final Census sync run status.
         run_data: A dictionary containing information about the run after completion.
     """
     logger = get_run_logger()

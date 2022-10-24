@@ -25,11 +25,7 @@ class TestTriggerCensusSyncRun:
         respx_mock.post(
             "https://app.getcensus.com/api/v1/syncs/45/trigger",
             headers={"Authorization": "Bearer my_api_key"},
-        ).mock(
-            return_value=Response(
-                200, json={"data": {"sync_run_id": 45}}
-            )
-        )
+        ).mock(return_value=Response(200, json={"data": {"sync_run_id": 45}}))
 
         @flow
         async def test_flow():

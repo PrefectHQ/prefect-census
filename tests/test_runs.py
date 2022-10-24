@@ -23,8 +23,6 @@ class TestGetCensusSyncRunInfo:
         respx_mock.get(
             "https://app.getcensus.com/api/v1/sync_runs/4",  # noqa
             headers={"Authorization": "Bearer my_api_key"},
-        ).mock(
-            return_value=Response(404, json={"status": {"message": "Not found!"}})
-        )
+        ).mock(return_value=Response(404, json={"status": {"message": "Not found!"}}))
         with pytest.raises(CensusGetSyncRunInfoFailed, match="Not found!"):
             await get_census_sync_run_info.fn(credentials=census_credentials, run_id=4)
