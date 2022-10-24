@@ -19,7 +19,7 @@ class CensusCredentials(Block):
     Examples:
         Load stored Census credentials:
         ```python
-        from prefect_census.client import CensusCredentials
+        from prefect_census import CensusCredentials
 
         census_creds = CensusCredentials.load("BLOCK_NAME")
         ```
@@ -59,7 +59,9 @@ class CensusCredentials(Block):
     _block_type_name = "Census Credentials"
     _logo_url = "https://images.ctfassets.net/gm98wzqotmnx/3oznRx2UFkd2XyqNkEZpzB/4e0967a828aec5e2527cedadf8d24e8a/llmjpn8a0pgu8szjmnyi.webp?h=250"  # noqa
 
-    api_key: SecretStr = Field(..., title="API Key", description="API key to authenticate with the Census API.")
+    api_key: SecretStr = Field(
+        ..., title="API Key", description="API key to authenticate with the Census API."
+    )
 
     def get_client(self) -> AsyncClient:
         """

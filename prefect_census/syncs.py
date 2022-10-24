@@ -1,5 +1,6 @@
 """Module containing tasks and flows for interacting with Census syncs."""
 from typing import Any, Dict
+
 from httpx import HTTPStatusError
 from prefect import flow, task
 from prefect.logging import get_run_logger
@@ -16,7 +17,6 @@ from prefect_census.utils import extract_user_message
 
 class CensusSyncTriggerFailed(RuntimeError):
     """Used to indicate sync triggered."""
-
 
 
 @task(

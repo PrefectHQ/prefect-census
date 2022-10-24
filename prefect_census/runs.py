@@ -24,15 +24,12 @@ class CensusSyncRunTimeout(RuntimeError):
     """
 
 
-
 class CensusGetSyncRunInfoFailed(RuntimeError):
     """Used to idicate retrieve sync run info."""
 
 
-
 class CensusSyncRunCancelled(Exception):
     """Raised when a triggered sync run is cancelled"""
-
 
 
 class CensusSyncRunStatus(Enum):
@@ -59,8 +56,7 @@ class CensusSyncRunStatus(Enum):
 @task(
     name="Get Census sync run details",
     description=(
-        "Retrieves details of a Census sync run"
-        "for the sync with the given sync_id."
+        "Retrieves details of a Census sync run" "for the sync with the given sync_id."
     ),
     retries=3,
     retry_delay_seconds=10,
@@ -142,7 +138,6 @@ async def wait_census_sync_completion(
         )
         run_data = await run_data_future.result()
         run_status = run_data.get("status")
-
 
         if CensusSyncRunStatus.is_terminal_status_code(run_status):
             return CensusSyncRunStatus(run_status), run_data
