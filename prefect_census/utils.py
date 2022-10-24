@@ -16,5 +16,5 @@ def extract_user_message(error: HTTPStatusError) -> Optional[str]:
             be extracted.
     """
     response_payload = error.response.json()
-    status = response_payload.get("status", {})
-    return status
+    user_message = response_payload.get("message", None)
+    return user_message
