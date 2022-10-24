@@ -60,7 +60,7 @@ async def trigger_census_sync(
                 - sync_trigger_reason
                 - ui_tag
                 - ui_detail
-                
+
     Examples:
         Trigger a Census sync run:
         ```python
