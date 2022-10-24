@@ -23,7 +23,6 @@ class CensusSyncRunTimeout(RuntimeError):
     wait seconds
     """
 
-    pass
 
 
 class CensusGetSyncRunInfoFailed(RuntimeError):
