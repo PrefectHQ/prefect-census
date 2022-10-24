@@ -2,7 +2,7 @@
 from httpx import AsyncClient
 from prefect.blocks.core import Block
 from pydantic import SecretStr
-from client import CensusClient
+from prefect_census.client import CensusClient
 
 
 class CensusCredentials(Block):
