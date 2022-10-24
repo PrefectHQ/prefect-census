@@ -25,7 +25,6 @@ class CensusClient:
         self,
         http_method: str,
         path: str,
-        headers: Optional[dict[str, Any]] = None,
     ) -> Response:
         """
         Call an endpoint in the Census API.
