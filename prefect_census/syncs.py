@@ -1,8 +1,9 @@
 """Module containing tasks and flows for interacting with Census syncs."""
-from prefect import flow, task
-from credentials import CensusCredentials
 from httpx import HTTPStatusError
+from prefect import flow, task
+
 from prefect.logging import get_run_logger
+from prefect_census.credentials import CensusCredentials
 from prefect_census.runs import CensusSyncRunStatus, CensusSyncRunFailed, CensusSyncRunCancelled, wait_census_sync_completion
 from prefect_census.utils import extract_user_message
 
