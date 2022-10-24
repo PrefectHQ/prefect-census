@@ -61,8 +61,10 @@ class CensusSyncRunStatus(Enum):
 
 @task(
     name="Get Census sync run details",
-    description="Retrieves details of a Census sync run"
-    "for the sync with the given sync_id.",
+    description=(
+        "Retrieves details of a Census sync run"
+        "for the sync with the given sync_id."
+    ),
     retries=3,
     retry_delay_seconds=10,
 )
