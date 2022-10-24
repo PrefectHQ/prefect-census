@@ -1,6 +1,9 @@
 """Module containing client for interacting with the Census API"""
-from httpx import AsyncClient, Response
 from typing import Any, Dict, Optional
+
+import prefect
+from httpx import AsyncClient, Response
+
 
 class CensusClient:
     """
@@ -16,7 +19,10 @@ class CensusClient:
 
         self.client = AsyncClient(
             base_url="https://app.getcensus.com/api/v1",
-            headers={"Authorization": f"Bearer {api_key}"},
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "user-agent": f"prefect-{prefect.__version__}",
+            },
         )
 
     async def call_endpoint(
@@ -24,7 +30,7 @@ class CensusClient:
         http_method: str,
         path: str,
         params: Optional[Dict[str, Any]] = None,
-        json: Optional[Dict[str, Any]] = None
+        json: Optional[Dict[str, Any]] = None,
     ) -> Response:
         """
         Call an endpoint in the Census API.
@@ -42,7 +48,6 @@ class CensusClient:
 
         response = await self.client.request(
             method=http_method, url=path, params=params, json=json
-
         )
         response.raise_for_status()
         return response
@@ -57,13 +62,15 @@ class CensusClient:
 
         Returns:
             The response from the Census API.
-        """  # noqa
+        """
         return await self.call_endpoint(
-            http_method="GET", 
+            http_method="GET",
             path=f"/sync_runs/{run_id}",
         )
 
-    async def trigger_sync_run(self, sync_id: int, force_full_sync: bool = False) -> Response:
+    async def trigger_sync_run(
+        self, sync_id: int, force_full_sync: bool = False
+    ) -> Response:
         """
         Sends a request to the [trigger sync run endpoint]
         (https://docs.getcensus.com/basics/api/sync-runs)
@@ -77,9 +84,9 @@ class CensusClient:
             The response from the Census API.
         """
         return await self.call_endpoint(
-            http_method="POST", 
+            http_method="POST",
             path=f"/syncs/{sync_id}/trigger",
-            params={"force_full_sync": force_full_sync}
+            params={"force_full_sync": force_full_sync},
         )
 
     async def __aenter__(self):
