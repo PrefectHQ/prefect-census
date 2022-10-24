@@ -1,12 +1,12 @@
 """Module containing tasks and flows for interacting with Census sync runs"""
 import asyncio
-
 from enum import Enum
+
 from httpx import HTTPStatusError
 from pkg_resources import working_set
 from prefect import flow, task
-
 from prefect.logging import get_run_logger
+
 from prefect_census.credentials import CensusCredentials
 from prefect_census.utils import extract_user_message
 
@@ -31,6 +31,7 @@ class CensusGetSyncRunInfoFailed(RuntimeError):
 
     pass
 
+
 class CensusSyncRunCancelled(Exception):
     """Raised when a triggered sync run is cancelled"""
 
@@ -38,6 +39,7 @@ class CensusSyncRunCancelled(Exception):
 
 
 class CensusSyncRunStatus(Enum):
+    """Census sync statuses."""
 
     CANCELLED = "cancelled"
     WORKING = "working"
@@ -50,8 +52,11 @@ class CensusSyncRunStatus(Enum):
         Returns True if a status code is terminal for a job run.
         Returns False otherwise.
         """
-        return status_code in [cls.CANCELLED.value, cls.FAILED.value, cls.COMPLETED.value]
-
+        return status_code in [
+            cls.CANCELLED.value,
+            cls.FAILED.value,
+            cls.COMPLETED.value,
+        ]
 
 
 @task(
@@ -59,19 +64,19 @@ class CensusSyncRunStatus(Enum):
     description="Retrieves details of a Census sync run"
     "for the sync with the given sync_id.",
     retries=3,
-    retry_delay_seconds=10
+    retry_delay_seconds=10,
 )
 async def get_census_sync_run_info(credentials: CensusCredentials, run_id: int):
     """
     A task to retrieve information a Census sync run.
-    
+
     Args:
         credentials: Credentials for authenticating with Census.
         run_id: The ID of the run of the sync to trigger.
-        
+
     Returns:
         The run data returned by the Census API.
-        
+
     Example:
         Get Census sync run info:
         ```python
@@ -83,7 +88,7 @@ async def get_census_sync_run_info(credentials: CensusCredentials, run_id: int):
         @flow
         def get_sync_run_info_flow():
             credentials = CensusCredentials(api_key="my_api_key")
-            
+
             return get_census_sync_run_info(
                 credentials=credentials,
                 run_id=42
@@ -113,16 +118,16 @@ async def wait_census_sync_completion(
 ) -> tuple[CensusSyncRunStatus, dict]:
     """
     Wait for the given Census sync run to finish running.
-    
+
     Args:
         run_id: The ID of the sync run to wait for.
         credentials: Credentials for authenticating with Census.
         max_wait_seconds: Maximum number of seconds to wait for sync to complete.
         poll_frequency_seconds: Number of seconds to wait in between checks for run completion.
-        
+
     Raises:
         CensusSyncRunTimeout: When the elapsed wait time exceeds `max_wait_seconds`.
-    
+
     Returns:
         run_data: A dictionary containing information about the run after completion.
     """
@@ -142,7 +147,7 @@ async def wait_census_sync_completion(
 
         if CensusSyncRunStatus.is_terminal_status_code(run_status):
             return CensusSyncRunStatus(run_status), run_data
-        
+
         wait_for = [run_data_future]
         logger.info(
             f"Census sync run with ID %i has status %s. Waiting for %i seconds.",
@@ -152,7 +157,7 @@ async def wait_census_sync_completion(
         )
         await asyncio.sleep(poll_frequency_seconds)
         seconds_waited_for_run_completion += poll_frequency_seconds
-    
+
     raise CensusSyncRunTimeout(
         f"Max wait time of {max_wait_seconds} seconds exceeded while waiting "
         f"for sync run with ID {run_id}"
