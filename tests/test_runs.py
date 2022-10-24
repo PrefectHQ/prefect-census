@@ -1,5 +1,4 @@
 import pytest
-import respx
 from httpx import Response
 
 from prefect_census.credentials import CensusCredentials
@@ -12,7 +11,7 @@ def census_credentials():
 
 
 class TestGetCensusSyncRunInfo:
-    async def test_get_census_sync_run_info(self, respx_mock: respx.MockRouter, census_credentials):
+    async def test_get_census_sync_run_info(self, respx_mock, census_credentials):
         respx_mock.get(
             "https://app.getcensus.com/api/v1/sync_runs/42",  # noqa
             headers={"Authorization": "Bearer my_api_key"},
