@@ -11,9 +11,7 @@ class TestGetCensusSyncRunInfo:
             headers={"Authorization": "Bearer my_api_key"},
         ).mock(return_value=Response(200, json={"data": {"sync_run_id": 42}}))
 
-        await get_census_sync_run_info.fn(
-            credentials=census_credentials, run_id=42
-        )
+        await get_census_sync_run_info.fn(credentials=census_credentials, run_id=42)
 
     async def test_get_nonexistent_run(self, respx_mock, census_credentials):
         respx_mock.get(

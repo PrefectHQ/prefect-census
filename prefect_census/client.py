@@ -1,6 +1,4 @@
 """Module containing client for interacting with the Census API"""
-from typing import Any, Optional
-
 from httpx import AsyncClient, Response
 
 
@@ -42,7 +40,6 @@ class CensusClient:
         response = await self.client.request(
             method=http_method,
             url=path,
-            headers=headers,
         )
         response.raise_for_status()
         return response
