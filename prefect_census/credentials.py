@@ -19,7 +19,7 @@ class CensusCredentials(Block):
     Examples:
         Load stored Census credentials:
         ```python
-        from prefect_census.client import CensusCredentials
+        from prefect_census import CensusCredentials
 
         census_creds = CensusCredentials.load("BLOCK_NAME")
         ```
