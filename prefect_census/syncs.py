@@ -1,4 +1,5 @@
 """Module containing tasks and flows for interacting with Census syncs."""
+from typing import Any, Dict
 from httpx import HTTPStatusError
 from prefect import flow, task
 from prefect.logging import get_run_logger
@@ -76,7 +77,7 @@ async def trigger_census_sync(credentials: CensusCredentials, sync_id: int) -> d
     name="Get Census sync run id",
     description="Extracts the run ID from a trigger sync run API response",
 )
-def get_run_id(obj: dict) -> int:
+def get_run_id(obj: Dict[str, Any]) -> int:
     """
     Task that extracts the run ID from a trigger sync run API response.
 
