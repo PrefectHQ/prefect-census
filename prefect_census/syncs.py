@@ -51,7 +51,7 @@ async def trigger_census_sync(credentials: CensusCredentials, sync_id: int) -> d
 
         trigger_census_sync_flow()
         ```
-    """  # noqa
+    """
     logger = get_run_logger()
 
     logger.info(f"Triggering Census sync run for sync with ID {sync_id}")
