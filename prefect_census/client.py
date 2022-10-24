@@ -14,13 +14,15 @@ class CensusClient:
         self._closed = False
         self._started = False
 
-        self.client = AsyncClient(base_url=f"https://bearer:{api_key}@app.getcensus.com")
+        self.client = AsyncClient(
+            base_url=f"https://app.getcensus.com", 
+            headers={"Authorization": f"Bearer {api_key}"})
 
     async def call_endpoint(
         self,
         http_method: str,
         path: str,
-        params: Optional[dict[str, Any]] = None,
+        headers: Optional[dict[str, Any]] = None,
     ) -> Response:
         """
         Call an endpoint in the Census API.
@@ -36,7 +38,7 @@ class CensusClient:
         """
 
         response = await self.client.request(
-            method=http_method, url=path, params=params,
+            method=http_method, url=path, headers=headers,
         )
         response.raise_for_status()
         return response
