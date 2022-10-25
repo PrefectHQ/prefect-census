@@ -79,7 +79,7 @@ class CensusClient:
     @sync_compatible
     async def get_run_info(self, run_id: int) -> Response:
         """
-        Sends a request to the [get sync id info endpoint](https://docs.getcensus.com/basics/api/syncs#get-syncs-id)
+        Sends a request to the [get sync id info endpoint](https://docs.getcensus.com/basics/api/syncs#get-syncs-id)  # noqa
 
         Args:
             run_id: The ID of the sync run to get details for.
@@ -97,7 +97,7 @@ class CensusClient:
         self, sync_id: int, force_full_sync: bool = False
     ) -> Response:
         """
-        Sends a request to the [trigger sync run endpoint](https://docs.getcensus.com/basics/api/sync-runs)
+        Sends a request to the [trigger sync run endpoint](https://docs.getcensus.com/basics/api/sync-runs)  # noqa
         to initiate a sync run.
 
         Args:
