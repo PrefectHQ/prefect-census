@@ -2,6 +2,7 @@
 from typing import Optional
 
 from httpx import HTTPStatusError
+from orjson import JSONDecodeError
 
 
 def extract_user_message(error: HTTPStatusError) -> Optional[str]:
@@ -15,6 +16,9 @@ def extract_user_message(error: HTTPStatusError) -> Optional[str]:
         The status from Census API response or None if a status cannot
             be extracted.
     """
-    response_payload = error.response.json()
-    user_message = response_payload.get("status", None)
-    return user_message
+    try:
+        response_payload = error.response.json()
+        user_message = response_payload.get("status", None)
+        return user_message
+    except JSONDecodeError:
+        pass
