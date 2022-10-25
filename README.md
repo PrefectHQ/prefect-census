@@ -87,6 +87,23 @@ def get_sync_run_info_flow():
 get_sync_run_info_flow()
 ```
 
+Call custom endpoint:
+```python
+from prefect import flow
+from prefect_census import CensusCredentials
+from prefect_census.client import CensusClient
+
+@flow
+def my_flow(sync_id):
+    creds_block = CensusCredentials(api_key="my_api_key")
+
+    client = CensusClient(api_key=creds_block.api_key.get_secret_value())
+    response = client.call_endpoint(http_method="GET", path=f"/syncs/{sync_id}")
+    return response
+
+my_flow(42)
+```
+
 ## Resources
 
 If you encounter any bugs while using `prefect-census`, feel free to open an issue in the [prefect-census](https://github.com/PrefectHQ/prefect-census) repository.

@@ -39,13 +39,35 @@ class CensusClient:
 
         Args:
             http_method: HTTP method to call on the endpoint.
-            path: The partial path for request (e.g. //api/v1/syncs/42). Will be
+            path: The partial path for request (e.g. /syncs/42). Will be
                 appended onto the base URL as determined by the client configuration.
             params: Query parameters to include in the request.
             json: JSON serializable body to send in the request.
 
         Returns:
             The response from the Census API.
+
+        Example:
+            ```python
+            from prefect import flow
+            from prefect_census import CensusCredentials
+            from prefect_census.client import CensusClient
+
+            @flow
+            def my_flow(sync_id):
+                creds_block = CensusCredentials(api_key="my_api_key")
+
+                client = CensusClient(
+                    api_key=creds_block.api_key.get_secret_value()
+                )
+                response = client.call_endpoint(
+                    http_method="GET",
+                    path=f"/syncs/{sync_id}"
+                )
+                return response
+
+            my_flow(42)
+            ```
         """
 
         response = await self.client.request(
