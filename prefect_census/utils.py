@@ -1,8 +1,8 @@
 """Utilities for common interactions with the Census API"""
+from json import JSONDecodeError
 from typing import Optional
 
 from httpx import HTTPStatusError
-from orjson import JSONDecodeError
 
 
 def extract_user_message(error: HTTPStatusError) -> Optional[str]:
