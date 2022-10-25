@@ -168,7 +168,7 @@ async def trigger_census_sync_run_and_wait_for_completion(
 
     Returns:
         The run data returned by the Census API.
-        Keys: 
+        Keys:
             - status
             - data
                 sync_run_id
