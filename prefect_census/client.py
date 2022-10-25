@@ -104,7 +104,7 @@ class CensusClient:
 
         Args:
             sync_id: The ID of the sync to trigger.
-            force_full_sync: If thee sync should perform a full sync
+            force_full_sync: If the sync should perform a full sync.
 
         Returns:
             The response from the Census API.
