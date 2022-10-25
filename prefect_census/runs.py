@@ -186,7 +186,7 @@ async def wait_census_sync_completion(
         logger.info(
             "Census sync run with ID %i has status %s. Waiting for %i seconds.",
             run_id,
-            CensusSyncRunStatus(run_status),
+            CensusSyncRunStatus(run_status).name,
             poll_frequency_seconds,
         )
         await asyncio.sleep(poll_frequency_seconds)
