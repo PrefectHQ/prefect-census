@@ -71,6 +71,45 @@ async def get_census_sync_run_info(credentials: CensusCredentials, run_id: int):
 
     Returns:
         The run data returned by the Census API.
+        Keys:
+        - status
+        - data
+            - id
+            - label
+            - schedule_frequency
+            - schedule_day
+            - schedule_hour
+            - schedule_minute
+            - created_at
+            - updated_at
+            - operation
+            - paused
+            - status
+            - lead_union_insert_to
+            - field_behavior
+            - field_normalization
+            - mirror_strategy
+            - source_attributes
+                - connection_id
+                - object
+                   - type
+                   - id
+                   - table_catalog
+                   - table_schema
+                   - table_name
+            - destination_attributes
+                - connection_id
+                - object
+            - mappings
+                    - from
+                    - type
+                    - data
+                    - to
+                    - is_primary_identifier
+                    - generate_field
+                    - preserve_values
+                    - operation
+
 
     Example:
         Get Census sync run info:
