@@ -41,27 +41,67 @@ pip install prefect-census
 Then, register to [view the block](https://orion-docs.prefect.io/ui/blocks/) on Prefect Cloud:
 
 ```bash
-prefect block register -m prefect_census.credentials
+prefect block register -m prefect_census
 ```
 
 Note, to use the `load` method on Blocks, you must already have a block document [saved through code](https://orion-docs.prefect.io/concepts/blocks/#saving-blocks) or [saved through the UI](https://orion-docs.prefect.io/ui/blocks/).
 
 ### Write and run a flow
+Trigger Census sync run and wait for completion:
 
 ```python
 from prefect import flow
-from prefect_census.tasks import (
-    goodbye_prefect_census,
-    hello_prefect_census,
-)
 
+from prefect_census import CensusCredentials
+from prefect_census.syncs import trigger_census_sync_run_and_wait_for_completion
 
 @flow
-def example_flow():
-    hello_prefect_census
-    goodbye_prefect_census
+def my_flow():
+    ...
+    creds = CensusCredentials(api_key="my_api_key")
+    run_result = trigger_census_sync_run_and_wait_for_completion(
+        credentials=creds,
+        sync_id=42
+    )
+    ...
 
-example_flow()
+my_flow()
+```
+
+Get Census sync run info:
+```python
+from prefect import flow
+
+from prefect_census import CensusCredentials
+from prefect_census.runs import get_census_sync_run_info
+
+@flow
+def get_sync_run_info_flow():
+    credentials = CensusCredentials(api_key="my_api_key")
+
+    return get_census_sync_run_info(
+        credentials=credentials,
+        run_id=42
+    )
+
+get_sync_run_info_flow()
+```
+
+Call custom endpoint:
+```python
+from prefect import flow
+from prefect_census import CensusCredentials
+from prefect_census.client import CensusClient
+
+@flow
+def my_flow(sync_id):
+    creds_block = CensusCredentials(api_key="my_api_key")
+
+    client = CensusClient(api_key=creds_block.api_key.get_secret_value())
+    response = client.call_endpoint(http_method="GET", path=f"/syncs/{sync_id}")
+    return response
+
+my_flow(42)
 ```
 
 ## Resources
