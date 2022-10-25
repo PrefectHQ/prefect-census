@@ -98,49 +98,6 @@ async def trigger_census_sync(
     return run_data["sync_run_id"]
 
 
-@task(
-    name="Get Census sync run id",
-    description="Extracts the run ID from a trigger sync run API response",
-)
-def get_run_id(obj: Dict[str, Any]) -> int:
-    """
-    Task that extracts the run ID from a trigger sync run API response.
-
-    This task is mainly used to maintain dependency tracking between the
-    `trigger_census_sync_run` task and downstream task/flows that use the run ID.
-
-    Args:
-        obj: The JSON body from the trigger sync run response.
-
-    Example:
-        ```python
-        from prefect import flow
-        from prefect_census import CensusCredentials
-        from prefect_census.syncs import trigger_census_sync_run, get_run_id
-
-
-        @flow
-        def trigger_sync_run_and_get_id():
-            credentials = CensusCredentials(
-                api_key="my_api_key"
-            )
-
-            triggered_run_data = trigger_census_sync_run(
-                credentials=credentials,
-                run_id=run_id
-            )
-            run_id = get_run_id.submit(triggered_run_data)
-            return run_id
-
-        trigger_sync_run_and_get_id()
-        ```
-    """
-    id = obj.get("id")
-    if id is None:
-        raise RuntimeError("Unable to determine run ID for triggered sync.")
-    return id
-
-
 @flow(
     name="Trigger Census sync run and wait for completion",
     description="Triggers a Census sync run and waits for the"
