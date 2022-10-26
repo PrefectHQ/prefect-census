@@ -43,7 +43,7 @@ class CensusSyncRunStatus(Enum):
     @classmethod
     def is_terminal_status_code(cls, status_code: str) -> bool:
         """
-        Returns True if a status code is terminal for a job run.
+        Returns True if a status code is terminal for a sync run.
         Returns False otherwise.
         """
         return status_code in [
@@ -61,7 +61,9 @@ class CensusSyncRunStatus(Enum):
     retries=3,
     retry_delay_seconds=10,
 )
-async def get_census_sync_run_info(credentials: CensusCredentials, run_id: int):
+async def get_census_sync_run_info(
+    credentials: CensusCredentials, run_id: int
+) -> Dict[str, Any]:
     """
     A task to retrieve information a Census sync run.
 
@@ -70,45 +72,32 @@ async def get_census_sync_run_info(credentials: CensusCredentials, run_id: int):
         run_id: The ID of the run of the sync to trigger.
 
     Returns:
-        The run data returned by the Census API.
-        Keys:
-        - status
-        - data
-                - id
-                - label
-                - schedule_frequency
-                - schedule_day
-                - schedule_hour
-                - schedule_minute
-                - created_at
-                - updated_at
-                - operation
-                - paused
-                - status
-                - lead_union_insert_to
-                - field_behavior
-                - field_normalization
-                - mirror_strategy
-                - source_attributes
-                    - connection_id
-                    - object
-                    - type
-                    - id
-                    - table_catalog
-                    - table_schema
-                    - table_name
-                - destination_attributes
-                    - connection_id
-                    - object
-                - mappings
-                    - from
-                    - type
-                    - data
-                    - to
-                    - is_primary_identifier
-                    - generate_field
-                    - preserve_values
-                    - operation
+        The run data returned by the Census API as dict with the following shape:
+            ```
+            {
+                "id": 94,
+                "sync_id": 52,
+                "source_record_count": 1,
+                "records_processed": 1,
+                "records_updated": 1,
+                "records_failed": 0,
+                "records_invalid": 0,
+                "created_at": "2021-10-20T02:51:07.546Z",
+                "updated_at": "2021-10-20T02:52:29.236Z",
+                "completed_at": "2021-10-20T02:52:29.234Z",
+                "scheduled_execution_time": null,
+                "error_code": null,
+                "error_message": null,
+                "error_detail": null,
+                "status": "completed",
+                "canceled": false,
+                "full_sync": true,
+                "sync_trigger_reason": {
+                    "ui_tag": "Manual",
+                    "ui_detail": "Manually triggered by test@getcensus.com"
+                }
+            }
+            ```
 
 
     Example:
@@ -165,7 +154,34 @@ async def wait_census_sync_completion(
 
     Returns:
         run_status: An enum representing the final Census sync run status.
-        run_data: A dictionary containing information about the run after completion.
+        run_data: A dictionary containing information about the run after completion
+            in the following shape:
+            ```
+            {
+                "id": 94,
+                "sync_id": 52,
+                "source_record_count": 1,
+                "records_processed": 1,
+                "records_updated": 1,
+                "records_failed": 0,
+                "records_invalid": 0,
+                "created_at": "2021-10-20T02:51:07.546Z",
+                "updated_at": "2021-10-20T02:52:29.236Z",
+                "completed_at": "2021-10-20T02:52:29.234Z",
+                "scheduled_execution_time": null,
+                "error_code": null,
+                "error_message": null,
+                "error_detail": null,
+                "status": "completed",
+                "canceled": false,
+                "full_sync": true,
+                "sync_trigger_reason": {
+                    "ui_tag": "Manual",
+                    "ui_detail": "Manually triggered by test@getcensus.com"
+                }
+            }
+            ```
+
     """
     logger = get_run_logger()
     seconds_waited_for_run_completion = 0

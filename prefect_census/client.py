@@ -11,7 +11,7 @@ class CensusClient:
     Client for interacting with the Census API.
 
     Attributes:
-        api_key: API key to authenticate with the Census API.
+        api_key (str): API key to authenticate with the Census API.
     """
 
     def __init__(self, api_key: str):
@@ -79,14 +79,14 @@ class CensusClient:
     @sync_compatible
     async def get_run_info(self, run_id: int) -> Response:
         """
-        Sends a request to the [get sync id info endpoint](https://docs.getcensus.com/basics/api/syncs#get-syncs-id)  # noqa
+        Sends a request to the [get sync id info endpoint](https://docs.getcensus.com/basics/api/syncs#get-syncs-id)
 
         Args:
             run_id: The ID of the sync run to get details for.
 
         Returns:
             The response from the Census API.
-        """
+        """  # noqa
         return await self.call_endpoint(
             http_method="GET",
             path=f"/sync_runs/{run_id}",
@@ -97,7 +97,7 @@ class CensusClient:
         self, sync_id: int, force_full_sync: bool = False
     ) -> Response:
         """
-        Sends a request to the [trigger sync run endpoint](https://docs.getcensus.com/basics/api/sync-runs)  # noqa
+        Sends a request to the [trigger sync run endpoint](https://docs.getcensus.com/basics/api/sync-runs)
         to initiate a sync run.
 
         Args:
@@ -106,7 +106,7 @@ class CensusClient:
 
         Returns:
             The response from the Census API.
-        """
+        """  # noqa
         return await self.call_endpoint(
             http_method="POST",
             path=f"/syncs/{sync_id}/trigger",
