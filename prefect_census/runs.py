@@ -154,7 +154,7 @@ async def wait_census_sync_completion(
 
     Returns:
         run_status: An enum representing the final Census sync run status.
-        run_data: A dictionary containing information about the run after completion 
+        run_data: A dictionary containing information about the run after completion
             in the following shape:
             ```
             {

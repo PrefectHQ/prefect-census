@@ -1,5 +1,4 @@
 """Module containing credentials for interacting with Census."""
-from httpx import AsyncClient
 from prefect.blocks.core import Block
 from pydantic import Field, SecretStr
 

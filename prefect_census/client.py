@@ -86,7 +86,7 @@ class CensusClient:
 
         Returns:
             The response from the Census API.
-        """
+        """  # noqa
         return await self.call_endpoint(
             http_method="GET",
             path=f"/sync_runs/{run_id}",
@@ -106,7 +106,7 @@ class CensusClient:
 
         Returns:
             The response from the Census API.
-        """
+        """  # noqa
         return await self.call_endpoint(
             http_method="POST",
             path=f"/syncs/{sync_id}/trigger",
