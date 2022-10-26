@@ -12,7 +12,7 @@ class CensusCredentials(Block):
 
     Attributes:
         api_key: API key to authenticate with the Census
-            API. Refer to the [Authentication docs](
+            API. Refer to the [Census authentication docs](
             https://docs.getcensus.com/basics/api#getting-api-access)
             for retrieving the API key.
 
@@ -63,8 +63,11 @@ class CensusCredentials(Block):
         ..., title="API Key", description="API key to authenticate with the Census API."
     )
 
-    def get_client(self) -> AsyncClient:
+    def get_client(self) -> CensusClient:
         """
-        Returns a newly instantiated client for working with the Census API.
+        Provides an authenticated client for working with the Census API.
+
+        Returns:
+            A authenticated Census API client
         """
         return CensusClient(api_key=self.api_key.get_secret_value())

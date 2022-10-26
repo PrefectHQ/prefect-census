@@ -20,6 +20,10 @@
 
 Prefect integrations for working with Census syncs
 
+Census is an Operational Analytics platform that enables you to sync your trusted analytics data from your hub into operational tools that your business teams use on a daily basis.
+
+For information on how to get started with Census, refer to the [Census docs](https://docs.getcensus.com/).
+
 ## Getting Started
 
 ### Python setup
@@ -45,6 +49,14 @@ prefect block register -m prefect_census
 ```
 
 Note, to use the `load` method on Blocks, you must already have a block document [saved through code](https://orion-docs.prefect.io/concepts/blocks/#saving-blocks) or [saved through the UI](https://orion-docs.prefect.io/ui/blocks/).
+
+### Get a Census API Key
+
+You will need a Census API key to be able to use the integrations in this collection. 
+
+For directions for how to generate a Census API key, refer to the [Getting API Access](https://docs.getcensus.com/basics/api#getting-api-access) section of the Census docs.
+
+Once you have a Census API key, you can configure a Census Credentials block in the Prefect UI for use with the integrations in this collection. For information about how to configure a block in the Prefect UI, refer to the [Prefect docs](https://orion-docs.prefect.io/ui/blocks/).
 
 ### Write and run a flow
 Trigger Census sync run and wait for completion:

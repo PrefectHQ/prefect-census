@@ -26,40 +26,18 @@ class CensusSyncTriggerFailed(RuntimeError):
     retry_delay_seconds=10,
 )
 async def trigger_census_sync(
-    credentials: CensusCredentials, sync_id: int
-) -> Dict[str, Any]:
+    credentials: CensusCredentials, sync_id: int, force_full_sync: bool = False
+) -> int:
     """
     A task to trigger a Census sync run.
 
     Args:
         credentials: Credentials for authenticating with Census.
         sync_id: The ID of the sync to trigger.
+        force_full_sync: If `True`, a full sync will be triggered.
 
     Returns:
-        The run data returned from the Census API.
-        Keys:
-            - status
-            - data
-                - id
-                - sync_id
-                - source_record_count
-                - records_processed
-                - records_updated
-                - records_failed
-                - records_invalid
-                - created_at
-                - updated_at
-                - completed_at
-                - scheduled_execution_time
-                - error_code
-                - error_message
-                - error_detail
-                - status
-                - canceled
-                - full_sync
-                - sync_trigger_reason
-                - ui_tag
-                - ui_detail
+        The ID of the triggered sync run.
 
     Examples:
         Trigger a Census sync run:
@@ -82,13 +60,15 @@ async def trigger_census_sync(
     logger.info(f"Triggering Census sync run for sync with ID {sync_id}")
     try:
         async with credentials.get_client() as client:
-            response = await client.trigger_sync_run(sync_id=sync_id)
+            response = await client.trigger_sync_run(
+                sync_id=sync_id, force_full_sync=force_full_sync
+            )
     except HTTPStatusError as e:
         raise CensusSyncTriggerFailed(extract_user_message(e)) from e
 
     run_data = response.json()["data"]
 
-    if "id" in run_data:
+    if "sync_run_id" in run_data:
         logger.info(
             f"Census sync run successfully triggered for sync with ID {id}. "
             "You can view the status of this sync run at "
@@ -106,15 +86,17 @@ async def trigger_census_sync(
 async def trigger_census_sync_run_and_wait_for_completion(
     credentials: CensusCredentials,
     sync_id: int,
+    force_full_sync: bool = False,
     max_wait_seconds: int = 900,
     poll_frequency_seconds: int = 10,
-) -> dict:
+) -> Dict[str, Any]:
     """
     Flow that triggers a sync run and waits for the triggered run to complete.
 
     Args:
         credentials: Credentials for authenticating with Census.
         sync_id: The ID of the sync to trigger.
+        force_full_sync: If `True`, a full sync will be triggered.
         max_wait_seconds: Maximum number of seconds to wait for sync to complete
         poll_frequency_seconds: Number of seconds to wait in between checks for run completion.
 
@@ -124,11 +106,32 @@ async def trigger_census_sync_run_and_wait_for_completion(
         RuntimeError: The triggered Census sync run ended in an unexpected state.
 
     Returns:
-        The run data returned by the Census API.
-        Keys:
-            - status
-            - data
-                sync_run_id
+        The final run data returned by the Census API as dict with the following shape:
+            ```
+            {
+                "id": 94,
+                "sync_id": 52,
+                "source_record_count": 1,
+                "records_processed": 1,
+                "records_updated": 1,
+                "records_failed": 0,
+                "records_invalid": 0,
+                "created_at": "2021-10-20T02:51:07.546Z",
+                "updated_at": "2021-10-20T02:52:29.236Z",
+                "completed_at": "2021-10-20T02:52:29.234Z",
+                "scheduled_execution_time": null,
+                "error_code": null,
+                "error_message": null,
+                "error_detail": null,
+                "status": "completed",
+                "canceled": false,
+                "full_sync": true,
+                "sync_trigger_reason": {
+                    "ui_tag": "Manual",
+                    "ui_detail": "Manually triggered by test@getcensus.com"
+                }
+            }
+            ```
 
     Examples:
         Trigger a Census sync using CensusCredentials instance and wait
@@ -172,7 +175,7 @@ async def trigger_census_sync_run_and_wait_for_completion(
     logger = get_run_logger()
 
     triggered_run_data_future = await trigger_census_sync.submit(
-        credentials=credentials, sync_id=sync_id
+        credentials=credentials, sync_id=sync_id, force_full_sync=force_full_sync
     )
 
     run_id = await triggered_run_data_future.result()
