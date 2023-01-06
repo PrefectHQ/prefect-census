@@ -26,7 +26,7 @@ Census is an Operational Analytics platform that enables you to sync your truste
 
 Some things you can do with this collection out-of-the-box include:
 - Trigger a Census sync run and wait for it to finish [(see how)](#trigger-census-sync-run-and-wait-for-completion)
-- Call a custom endpoint with a `CensusClient` using your `CensusCredentials`
+- Call a custom endpoint with a `CensusClient` using your `CensusCredentials` [(see how)](#call-a-custom-endpoint)
 
 
 For information on how to get started with Census, refer to the [Census docs](https://docs.getcensus.com/).
@@ -103,7 +103,7 @@ def get_sync_run_info_flow():
 get_sync_run_info_flow()
 ```
 
-#### **Call custom endpoint**:
+#### **Call a custom endpoint**:
 ```python
 from prefect import flow
 from prefect_census import CensusCredentials
