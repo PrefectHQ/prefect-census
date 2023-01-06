@@ -20,7 +20,7 @@ Visit the full docs [here](https://PrefectHQ.github.io/prefect-census) to see ad
 
 ## Welcome!
 
-Prefect integrations for working with Census syncs
+This collection contains Prefect integrations for working with Census syncs.
 
 Census is an Operational Analytics platform that enables you to sync your trusted analytics data from your hub into operational tools that your business teams use on a daily basis.
 
