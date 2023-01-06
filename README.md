@@ -1,5 +1,7 @@
 # prefect-census
 
+Visit the full docs [here](https://PrefectHQ.github.io/prefect-census) to see additional examples and the API reference.
+
 <p align="center">
     <a href="https://pypi.python.org/pypi/prefect-census/" alt="PyPI version">
         <img alt="PyPI" src="https://img.shields.io/pypi/v/prefect-census?color=0052FF&labelColor=090422"></a>
@@ -18,9 +20,14 @@
 
 ## Welcome!
 
-Prefect integrations for working with Census syncs
+This collection contains Prefect integrations for working with Census.
 
 Census is an Operational Analytics platform that enables you to sync your trusted analytics data from your hub into operational tools that your business teams use on a daily basis.
+
+Some things you can do with this collection out-of-the-box include:
+- Trigger a Census sync run and wait for it to finish [(see how)](#trigger-census-sync-run-and-wait-for-completion)
+- Call a custom endpoint with a `CensusClient` using your `CensusCredentials`
+
 
 For information on how to get started with Census, refer to the [Census docs](https://docs.getcensus.com/).
 
@@ -42,13 +49,7 @@ Install `prefect-census` with `pip`:
 pip install prefect-census
 ```
 
-Then, register to [view the block](https://orion-docs.prefect.io/ui/blocks/) on Prefect Cloud:
-
-```bash
-prefect block register -m prefect_census
-```
-
-Note, to use the `load` method on Blocks, you must already have a block document [saved through code](https://orion-docs.prefect.io/concepts/blocks/#saving-blocks) or [saved through the UI](https://orion-docs.prefect.io/ui/blocks/).
+A list of available blocks in `prefect-census` and their setup instructions can be found [here](https://PrefectHQ.github.io/prefect-census/#blocks-catalog).
 
 ### Get a Census API Key
 
@@ -56,10 +57,15 @@ You will need a Census API key to be able to use the integrations in this collec
 
 For directions for how to generate a Census API key, refer to the [Getting API Access](https://docs.getcensus.com/basics/api#getting-api-access) section of the Census docs.
 
-Once you have a Census API key, you can configure a Census Credentials block in the Prefect UI for use with the integrations in this collection. For information about how to configure a block in the Prefect UI, refer to the [Prefect docs](https://orion-docs.prefect.io/ui/blocks/).
+Once you have a Census API key, you can configure a `CensusCredentials` block in the Prefect UI for use with the integrations in this collection. For information about how to configure a block in the Prefect UI, refer to the [Prefect docs](https://orion-docs.prefect.io/ui/blocks/).
+
+### 💡  **NOTE**
+> All [Census Syncs are incremental](https://docs.getcensus.com/basics/core-concept#sync-behaviors), which means they only capture records that are new or changed data since the previous sync.
+
 
 ### Write and run a flow
-Trigger Census sync run and wait for completion:
+
+#### **Trigger Census sync run and wait for completion**:
 
 ```python
 from prefect import flow
@@ -68,19 +74,17 @@ from prefect_census import CensusCredentials
 from prefect_census.syncs import trigger_census_sync_run_and_wait_for_completion
 
 @flow
-def my_flow():
-    ...
+def my_census_orchestrator():
+    # do some setup
     creds = CensusCredentials(api_key="my_api_key")
     run_result = trigger_census_sync_run_and_wait_for_completion(
         credentials=creds,
         sync_id=42
     )
-    ...
-
-my_flow()
+    # do some other things
 ```
 
-Get Census sync run info:
+#### **Get Census sync run info**:
 ```python
 from prefect import flow
 
@@ -99,7 +103,7 @@ def get_sync_run_info_flow():
 get_sync_run_info_flow()
 ```
 
-Call custom endpoint:
+#### **Call custom endpoint**:
 ```python
 from prefect import flow
 from prefect_census import CensusCredentials
@@ -116,25 +120,32 @@ def my_flow(sync_id):
 my_flow(42)
 ```
 
+For more tips on how to use tasks and flows in a Collection, check out [Using Collections](https://orion-docs.prefect.io/collections/usage/)!
+
 ## Resources
 
 If you encounter any bugs while using `prefect-census`, feel free to open an issue in the [prefect-census](https://github.com/PrefectHQ/prefect-census) repository.
 
 If you have any questions or issues while using `prefect-census`, you can find help in either the [Prefect Discourse forum](https://discourse.prefect.io/) or the [Prefect Slack community](https://prefect.io/slack).
 
-Feel free to ⭐️ or watch [`prefect-census`](https://github.com/PrefectHQ/prefect-census) for updates too!
+Feel free to star or watch [`prefect-census`](https://github.com/PrefectHQ/prefect-census) for updates too!
 
-## Development
+## Contributing
 
-If you'd like to install a version of `prefect-census` for development, clone the repository and perform an editable install with `pip`:
+If you'd like to help contribute to fix an issue or add a feature to `prefect-census`, please [propose changes through a pull request from a fork of the repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork).
 
-```bash
-git clone https://github.com/PrefectHQ/prefect-census.git
-
-cd prefect-census/
-
+Here are the steps:
+1. [Fork the repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository)
+2. [Clone the forked repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo#cloning-your-forked-repository)
+3. Install the repository and its dependencies:
+```
 pip install -e ".[dev]"
-
-# Install linting pre-commit hooks
+```
+4. Make desired changes
+5. Add tests
+6. Insert an entry to [CHANGELOG.md](https://github.com/PrefectHQ/prefect-census/blob/main/CHANGELOG.md)
+7. Install `pre-commit` to perform quality checks prior to commit:
+```
 pre-commit install
 ```
+8. `git commit`, `git push`, and create a pull request
