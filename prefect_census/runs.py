@@ -14,8 +14,6 @@ from prefect_census.utils import extract_user_message
 class CensusSyncRunFailed(RuntimeError):
     """Raised when unable to retrieve Census sync run"""
 
-    pass
-
 
 class CensusSyncRunTimeout(RuntimeError):
     """
