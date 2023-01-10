@@ -20,9 +20,14 @@ Visit the full docs [here](https://PrefectHQ.github.io/prefect-census) to see ad
 
 ## Welcome!
 
-This collection contains Prefect integrations for working with Census syncs.
+This collection contains Prefect integrations for working with Census.
 
 Census is an Operational Analytics platform that enables you to sync your trusted analytics data from your hub into operational tools that your business teams use on a daily basis.
+
+Some things you can do with this collection out-of-the-box include:
+- Trigger a Census sync run and wait for it to finish [(see how)](#trigger-census-sync-run-and-wait-for-completion)
+- Call a custom endpoint with a `CensusClient` using your `CensusCredentials` [(see how)](#call-a-custom-endpoint)
+
 
 For information on how to get started with Census, refer to the [Census docs](https://docs.getcensus.com/).
 
@@ -52,10 +57,15 @@ You will need a Census API key to be able to use the integrations in this collec
 
 For directions for how to generate a Census API key, refer to the [Getting API Access](https://docs.getcensus.com/basics/api#getting-api-access) section of the Census docs.
 
-Once you have a Census API key, you can configure a Census Credentials block in the Prefect UI for use with the integrations in this collection. For information about how to configure a block in the Prefect UI, refer to the [Prefect docs](https://orion-docs.prefect.io/ui/blocks/).
+Once you have a Census API key, you can configure a `CensusCredentials` block in the Prefect UI for use with the integrations in this collection. For information about how to configure a block in the Prefect UI, refer to the [Prefect docs](https://orion-docs.prefect.io/ui/blocks/).
+
+### 💡  **NOTE**
+> All [Census Syncs are incremental](https://docs.getcensus.com/basics/core-concept#sync-behaviors), which means they only capture records that are new or changed data since the previous sync.
+
 
 ### Write and run a flow
-Trigger Census sync run and wait for completion:
+
+#### **Trigger Census sync run and wait for completion**:
 
 ```python
 from prefect import flow
@@ -64,19 +74,17 @@ from prefect_census import CensusCredentials
 from prefect_census.syncs import trigger_census_sync_run_and_wait_for_completion
 
 @flow
-def my_flow():
-    ...
+def my_census_orchestrator():
+    # do some setup
     creds = CensusCredentials(api_key="my_api_key")
     run_result = trigger_census_sync_run_and_wait_for_completion(
         credentials=creds,
         sync_id=42
     )
-    ...
-
-my_flow()
+    # do some other things
 ```
 
-Get Census sync run info:
+#### **Get Census sync run info**:
 ```python
 from prefect import flow
 
@@ -95,7 +103,7 @@ def get_sync_run_info_flow():
 get_sync_run_info_flow()
 ```
 
-Call custom endpoint:
+#### **Call a custom endpoint**:
 ```python
 from prefect import flow
 from prefect_census import CensusCredentials
