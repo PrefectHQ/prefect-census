@@ -238,6 +238,7 @@ class CensusSync(JobBlock):
         from prefect_census import (
             CensusCredentials, run_census_sync
         )
+        from prefect_census.syncs import CensusSync
 
         census_sync = CensusSync(
             credentials=CensusCredentials(api_key="my_api_key"),
