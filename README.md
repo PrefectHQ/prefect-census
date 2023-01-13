@@ -25,7 +25,7 @@ This collection contains Prefect integrations for working with Census.
 Census is an Operational Analytics platform that enables you to sync your trusted analytics data from your hub into operational tools that your business teams use on a daily basis.
 
 Some things you can do with this collection out-of-the-box include:
-- Trigger a Census sync run and wait for it to finish [(see how)](#trigger-census-sync-run-and-wait-for-completion)
+- Trigger a Census sync run and wait for it to finish [(see how)](#use-a-censussync-job-block-to-run-a-sync-and-wait-for-completion)
 - Call a custom endpoint with a `CensusClient` using your `CensusCredentials` [(see how)](#call-a-custom-endpoint)
 
 
@@ -91,6 +91,8 @@ def my_census_flow():
 
 #### **Trigger Census sync run and wait for completion**:
 
+Note that this works the same way as the `run_census_sync` above, however we recommend the `CensusSync` version as it implements the `JobBlock` interface that we intend to support.
+
 ```python
 from prefect import flow
 
@@ -137,8 +139,12 @@ from prefect_census.client import CensusClient
 def my_flow(sync_id):
     creds_block = CensusCredentials(api_key="my_api_key")
 
-    client = CensusClient(api_key=creds_block.api_key.get_secret_value())
-    response = client.call_endpoint(http_method="GET", path=f"/syncs/{sync_id}")
+    client = CensusClient(
+        api_key=creds_block.api_key.get_secret_value()    
+    )
+    response = client.call_endpoint(
+        http_method="GET", path=f"/syncs/{sync_id}"
+    )
     return response
 
 my_flow(42)
