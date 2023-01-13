@@ -66,6 +66,7 @@ nav:
     - Home: index.md
     - Client: client.md
     - Credentials: credentials.md
+    - Flows: flows.md
     - Runs: runs.md
     - Syncs: syncs.md
 
