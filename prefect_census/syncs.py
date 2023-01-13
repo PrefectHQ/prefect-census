@@ -235,18 +235,12 @@ class CensusSync(JobBlock):
     Example:
         ```python
         from prefect import flow
-        from prefect_census import (
-            CensusCredentials, run_census_sync
-        )
-        from prefect_census.syncs import CensusSync
-
-        census_sync = CensusSync(
-            credentials=CensusCredentials(api_key="my_api_key"),
-            sync_id=42
-        )
+        from prefect_census import CensusSync, run_census_sync
 
         @flow
         def my_census_flow():
+            census_sync = CensusSync.load("BLOCK_NAME")
+
             # do some setup
 
             run_census_sync(census_sync)
