@@ -65,6 +65,30 @@ Once you have a Census API key, you can configure a `CensusCredentials` block in
 
 ### Write and run a flow
 
+
+#### Use a `CensusSync` job block to run a sync and wait for completion
+
+```python
+from prefect import flow
+from prefect_census import (
+    CensusCredentials, CensusSync, run_census_sync
+)
+
+census_sync = CensusSync(
+    credentials=CensusCredentials(api_key="my_api_key"),
+    sync_id=42
+)
+
+@flow
+def my_census_flow():
+    # do some setup
+    
+    run_census_sync(census_sync)
+    
+    # do some cleanup
+
+```
+
 #### **Trigger Census sync run and wait for completion**:
 
 ```python

@@ -1,11 +1,11 @@
 """Module containing credentials for interacting with Census."""
-from prefect.blocks.core import Block
+from prefect.blocks.abstract import CredentialsBlock
 from pydantic import Field, SecretStr
 
 from prefect_census.client import CensusClient
 
 
-class CensusCredentials(Block):
+class CensusCredentials(CredentialsBlock):
     """
     Credentials block for credential use across Census tasks and flows.
 
