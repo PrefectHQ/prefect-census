@@ -25,7 +25,7 @@ This collection contains Prefect integrations for working with Census.
 Census is an Operational Analytics platform that enables you to sync your trusted analytics data from your hub into operational tools that your business teams use on a daily basis.
 
 Some things you can do with this collection out-of-the-box include:
-- Trigger a Census sync run and wait for it to finish [(see how)](#trigger-census-sync-run-and-wait-for-completion)
+- Trigger a Census sync run and wait for it to finish [(see how)](#use-a-censussync-job-block-to-run-a-sync-and-wait-for-completion)
 - Call a custom endpoint with a `CensusClient` using your `CensusCredentials` [(see how)](#call-a-custom-endpoint)
 
 
@@ -65,23 +65,28 @@ Once you have a Census API key, you can configure a `CensusCredentials` block in
 
 ### Write and run a flow
 
-#### **Trigger Census sync run and wait for completion**:
+
+#### Use a `CensusSync` job block to run a sync and wait for completion
 
 ```python
 from prefect import flow
+from prefect_census import (
+    CensusCredentials, CensusSync, run_census_sync
+)
 
-from prefect_census import CensusCredentials
-from prefect_census.syncs import trigger_census_sync_run_and_wait_for_completion
+census_sync = CensusSync(
+    credentials=CensusCredentials(api_key="my_api_key"),
+    sync_id=42
+)
 
 @flow
-def my_census_orchestrator():
+def my_census_flow():
     # do some setup
-    creds = CensusCredentials(api_key="my_api_key")
-    run_result = trigger_census_sync_run_and_wait_for_completion(
-        credentials=creds,
-        sync_id=42
-    )
-    # do some other things
+    
+    run_census_sync(census_sync)
+    
+    # do some cleanup
+
 ```
 
 #### **Get Census sync run info**:
@@ -113,8 +118,12 @@ from prefect_census.client import CensusClient
 def my_flow(sync_id):
     creds_block = CensusCredentials(api_key="my_api_key")
 
-    client = CensusClient(api_key=creds_block.api_key.get_secret_value())
-    response = client.call_endpoint(http_method="GET", path=f"/syncs/{sync_id}")
+    client = CensusClient(
+        api_key=creds_block.api_key.get_secret_value()    
+    )
+    response = client.call_endpoint(
+        http_method="GET", path=f"/syncs/{sync_id}"
+    )
     return response
 
 my_flow(42)

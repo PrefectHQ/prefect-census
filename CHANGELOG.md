@@ -19,6 +19,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+## 0.1.1
+
+Released on February 1st, 2023.
+
+### Added
+- `CensusSync` job block and `CensusSyncRun` job run representing a Census sync job - [#15](https://github.com/PrefectHQ/prefect-census/pull/15)
+
+### Fixed
+- Logging within `trigger_census_sync_and_wait_for_completion` printed the builtin `id` instead of the Census sync ID - [#15](https://github.com/PrefectHQ/prefect-census/pull/15)
+
 ## 0.1.0
 
 Released on October 26th, 2022.
