@@ -234,6 +234,7 @@ class CensusSync(JobBlock):
             for run completion.
 
     Example:
+        Trigger a Census sync and wait for completion as a subflow:
         ```python
         from prefect import flow
         from prefect_census import CensusSync, run_census_sync
@@ -334,6 +335,7 @@ class CensusSyncRun(JobRun):
     async def wait_for_completion(self):
         """Wait for the Census sync run to complete."""
         seconds_waited_for_run_completion = 0
+        _last_status = None
         while seconds_waited_for_run_completion <= self.sync.max_wait_seconds:
             try:
                 async with self.sync.credentials.get_client() as client:
@@ -359,19 +361,21 @@ class CensusSyncRun(JobRun):
                     )
                 elif self.status == CensusSyncRunStatus.FAILED.value:
                     raise CensusSyncRunFailed(
-                        f"Triggered sync run with ID: {self.run_id} failed."
+                        f"Triggered sync run with ID {self.run_id} has failed."
                     )
                 else:
                     raise RuntimeError(
                         f"Sync run with ID: {self.run_id} ended with unexpected "
                         f"status {self.status}"
                     )
+            if self.status != _last_status:
+                self.logger.info(
+                    "Census sync run with ID %i has status %s.",
+                    self.run_id,
+                    CensusSyncRunStatus(self.status).name,
+                )
+                _last_status = self.status
 
-            self.logger.info(
-                "Census sync run with ID %i has status %s.",
-                self.run_id,
-                CensusSyncRunStatus(self.status).name,
-            )
             await asyncio.sleep(self.sync.poll_frequency_seconds)
             seconds_waited_for_run_completion += self.sync.poll_frequency_seconds
 
