@@ -335,7 +335,7 @@ class CensusSyncRun(JobRun):
     async def wait_for_completion(self):
         """Wait for the Census sync run to complete."""
         seconds_waited_for_run_completion = 0
-        _last_status = None
+        last_status = None
         while seconds_waited_for_run_completion <= self.sync.max_wait_seconds:
             try:
                 async with self.sync.credentials.get_client() as client:
@@ -368,13 +368,13 @@ class CensusSyncRun(JobRun):
                         f"Sync run with ID: {self.run_id} ended with unexpected "
                         f"status {self.status}"
                     )
-            if self.status != _last_status:
+            if self.status != last_status:
                 self.logger.info(
                     "Census sync run with ID %i has status %s.",
                     self.run_id,
                     CensusSyncRunStatus(self.status).name,
                 )
-                _last_status = self.status
+                last_status = self.status
 
             await asyncio.sleep(self.sync.poll_frequency_seconds)
             seconds_waited_for_run_completion += self.sync.poll_frequency_seconds
