@@ -56,6 +56,7 @@ class CensusCredentials(CredentialsBlock):
     """
 
     _block_type_name = "Census Credentials"
+    _documentation_url = "https://prefecthq.github.io/prefect-census/credentials/"
     _logo_url = "https://images.ctfassets.net/gm98wzqotmnx/3oznRx2UFkd2XyqNkEZpzB/4e0967a828aec5e2527cedadf8d24e8a/llmjpn8a0pgu8szjmnyi.webp?h=250"  # noqa
 
     api_key: SecretStr = Field(

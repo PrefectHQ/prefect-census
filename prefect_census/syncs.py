@@ -277,6 +277,7 @@ class CensusSync(JobBlock):
 
     _block_type_name = "Census Sync"
     _description = "Runs a Census sync"
+    _documentation_url = "https://prefecthq.github.io/prefect-census/syncs/"
     _logo_url = "https://images.ctfassets.net/gm98wzqotmnx/3oznRx2UFkd2XyqNkEZpzB/4e0967a828aec5e2527cedadf8d24e8a/llmjpn8a0pgu8szjmnyi.webp?h=250"  # noqa
 
     @sync_compatible
