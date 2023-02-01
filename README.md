@@ -89,27 +89,6 @@ def my_census_flow():
 
 ```
 
-#### **Trigger Census sync run and wait for completion**:
-
-Note that this works the same way as the `run_census_sync` above, however we recommend the `CensusSync` version as it implements the `JobBlock` interface that we intend to support.
-
-```python
-from prefect import flow
-
-from prefect_census import CensusCredentials
-from prefect_census.syncs import trigger_census_sync_run_and_wait_for_completion
-
-@flow
-def my_census_orchestrator():
-    # do some setup
-    creds = CensusCredentials(api_key="my_api_key")
-    run_result = trigger_census_sync_run_and_wait_for_completion(
-        credentials=creds,
-        sync_id=42
-    )
-    # do some other things
-```
-
 #### **Get Census sync run info**:
 ```python
 from prefect import flow

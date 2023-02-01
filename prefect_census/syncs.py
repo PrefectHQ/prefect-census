@@ -82,9 +82,9 @@ async def trigger_census_sync(
 
     if "sync_run_id" in run_data:
         logger.info(
-            f"Census sync run successfully triggered for sync with ID {id}. "
+            f"Census sync run successfully triggered for sync with ID {sync_id}. "
             "You can view the status of this sync run at "
-            f"https://app.getcensus.com/sync/{id}/sync-history"
+            f"https://app.getcensus.com/sync/{sync_id}/sync-history"
         )
 
     return run_data["sync_run_id"]
@@ -222,7 +222,8 @@ async def trigger_census_sync_run_and_wait_for_completion(
 
 
 class CensusSync(JobBlock):
-    """A Job Block for triggering a Census sync run and waiting for completion.
+    """
+    A Job Block for triggering a Census sync run and waiting for completion.
 
     Attributes:
         credentials: Credentials for authenticating with Census.
@@ -275,11 +276,13 @@ class CensusSync(JobBlock):
     )
 
     _block_type_name = "Census Sync"
+    _description = "Runs a Census sync"
     _logo_url = "https://images.ctfassets.net/gm98wzqotmnx/3oznRx2UFkd2XyqNkEZpzB/4e0967a828aec5e2527cedadf8d24e8a/llmjpn8a0pgu8szjmnyi.webp?h=250"  # noqa
 
     @sync_compatible
     async def trigger(self) -> "CensusSyncRun":
-        """Trigger a Census sync run.
+        """
+        Trigger a Census sync run.
 
         Returns:
             A CensusSyncRun instance representing the triggered sync run.
@@ -310,7 +313,8 @@ class CensusSync(JobBlock):
 
 
 class CensusSyncRun(JobRun):
-    """A Job Run representing a Census sync run.
+    """
+    A Job Run representing a Census sync run.
 
     Attributes:
         sync: The CensusSync instance that triggered this run.

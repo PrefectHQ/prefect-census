@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.2.0
 
-Released on January 16th, 2023.
+Released on February 1st, 2023.
 
 ### Added
 - `CensusSync` job block and `CensusSyncRun` job run representing a Census sync job - [#15](https://github.com/PrefectHQ/prefect-census/pull/15)
