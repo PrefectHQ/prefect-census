@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://PrefectHQ.github.io/prefect-census/credentials/">
+        <link rel="canonical" href="https://PrefectHQ.github.io/prefect-census/flows/">
       
       
-        <link rel="prev" href="../client/">
+        <link rel="prev" href="../credentials/">
       
       
-        <link rel="next" href="../flows/">
+        <link rel="next" href="../syncs/">
       
       <link rel="icon" href="../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
     
     
       
-        <title>Credentials - prefect-census</title>
+        <title>Flows - prefect-census</title>
       
     
     
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#prefect_census.credentials" class="md-skip">
+        <a href="#prefect_census.flows" class="md-skip">
           Skip to content
         </a>
       
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Credentials
+              Flows
             
           </span>
         </div>
@@ -286,6 +286,21 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../credentials/" class="md-nav__link">
+        Credentials
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -298,12 +313,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Credentials
+          Flows
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Credentials
+        Flows
       </a>
       
         
@@ -322,23 +337,14 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prefect_census.credentials-classes" class="md-nav__link">
+  <a href="#prefect_census.flows-classes" class="md-nav__link">
     Classes
   </a>
   
-    <nav class="md-nav" aria-label="Classes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#prefect_census.credentials.CensusCredentials" class="md-nav__link">
-    CensusCredentials
-  </a>
-  
-    <nav class="md-nav" aria-label="CensusCredentials">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#prefect_census.credentials.CensusCredentials-functions" class="md-nav__link">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_census.flows-functions" class="md-nav__link">
     Functions
   </a>
   
@@ -346,19 +352,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#prefect_census.credentials.CensusCredentials.get_client" class="md-nav__link">
-    get_client()
+  <a href="#prefect_census.flows.run_census_sync" class="md-nav__link">
+    run_census_sync()
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -371,21 +367,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../flows/" class="md-nav__link">
-        Flows
-      </a>
     </li>
   
 
@@ -447,23 +428,14 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prefect_census.credentials-classes" class="md-nav__link">
+  <a href="#prefect_census.flows-classes" class="md-nav__link">
     Classes
   </a>
   
-    <nav class="md-nav" aria-label="Classes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#prefect_census.credentials.CensusCredentials" class="md-nav__link">
-    CensusCredentials
-  </a>
-  
-    <nav class="md-nav" aria-label="CensusCredentials">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#prefect_census.credentials.CensusCredentials-functions" class="md-nav__link">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_census.flows-functions" class="md-nav__link">
     Functions
   </a>
   
@@ -471,19 +443,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#prefect_census.credentials.CensusCredentials.get_client" class="md-nav__link">
-    get_client()
+  <a href="#prefect_census.flows.run_census_sync" class="md-nav__link">
+    run_census_sync()
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -515,15 +477,15 @@
 
 
 
-<h1 id="prefect_census.credentials" class="doc doc-heading">
-          <code>prefect_census.credentials</code>
+<h1 id="prefect_census.flows" class="doc doc-heading">
+          <code>prefect_census.flows</code>
 
 
 </h1>
 
   <div class="doc doc-contents first">
   
-      <p>Module containing credentials for interacting with Census.</p>
+      <p>Prefect flows for interacting with Census.</p>
 
   
 
@@ -534,86 +496,71 @@
 
 
 
-<h2 id="prefect_census.credentials-classes">Classes</h2>
+<h2 id="prefect_census.flows-classes">Classes</h2>
+<h2 id="prefect_census.flows-functions">Functions</h2>
 
-<div class="doc doc-object doc-class">
+<div class="doc doc-object doc-function">
 
 
 
-<h3 id="prefect_census.credentials.CensusCredentials" class="doc doc-heading">
-        <code>CensusCredentials</code>
-
+<h3 id="prefect_census.flows.run_census_sync" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">run_census_sync</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-async"><code>async</code></small>
+  </span>
 
 </h3>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><span title="prefect.blocks.abstract.CredentialsBlock">CredentialsBlock</span></code></p>
-
   
-      <p>Credentials block for credential use across Census tasks and flows.</p>
+      <p>A flow for triggering a Census sync run and waiting for completion.</p>
 
-  <p><strong>Attributes:</strong></p>
+  <p><strong>Parameters:</strong></p>
   <table>
     <thead>
       <tr>
         <th>Name</th>
         <th>Type</th>
         <th>Description</th>
+        <th>Default</th>
       </tr>
     </thead>
     <tbody>
         <tr>
-          <td><code>api_key</code></td>
+          <td><code>census_sync</code></td>
           <td>
-                <code><span title="pydantic.SecretStr">SecretStr</span></code>
+                <code><a class="autorefs autorefs-internal" title="prefect_census.syncs.CensusSync" href="../syncs/#prefect_census.syncs.CensusSync">CensusSync</a></code>
           </td>
-          <td><p>API key to authenticate with the Census
-API. Refer to the <a href="https://docs.getcensus.com/basics/api#getting-api-access">Census authentication docs</a>
-for retrieving the API key.</p></td>
+          <td><p>The Census sync job block to trigger.</p></td>
+          <td>
+              <em>required</em>
+          </td>
         </tr>
     </tbody>
   </table>
 
-<p><strong>Examples:</strong></p>
-    <p>Load stored Census credentials:
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">prefect_census</span> <span class="kn">import</span> <span class="n">CensusCredentials</span>
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+          </td>
+          <td><p>The result of the sync run.</p></td>
+        </tr>
+    </tbody>
+  </table>
 
-<span class="n">census_creds</span> <span class="o">=</span> <span class="n">CensusCredentials</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;BLOCK_NAME&quot;</span><span class="p">)</span>
-</code></pre></div></p>
-<p>Use CensusCredentials instance to trigger a sync run:
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">prefect</span> <span class="kn">import</span> <span class="n">flow</span>
-<span class="kn">from</span> <span class="nn">prefect_census</span> <span class="kn">import</span> <span class="n">CensusCredentials</span>
-
-<span class="n">credentials</span> <span class="o">=</span> <span class="n">CensusCredentials</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;my_api_key&quot;</span><span class="p">)</span>
-
-<span class="nd">@flow</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">trigger_sync_run_flow</span><span class="p">():</span>
-    <span class="k">async</span> <span class="k">with</span> <span class="n">credentials</span><span class="o">.</span><span class="n">get_client</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
-        <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">trigger_sync_run</span><span class="p">(</span><span class="n">sync_id</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">trigger_sync_run_flow</span><span class="p">())</span>
-</code></pre></div></p>
-<p>Load saved Census credentials within a flow:
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">prefect</span> <span class="kn">import</span> <span class="n">flow</span>
-
-<span class="kn">from</span> <span class="nn">prefect_census</span> <span class="kn">import</span> <span class="n">CensusCredentials</span>
-<span class="kn">from</span> <span class="nn">prefect_census.syncs</span> <span class="kn">import</span> <span class="n">trigger_census_sync</span>
-
-<span class="nd">@flow</span>
-<span class="k">def</span> <span class="nf">trigger_census_sync_run_flow</span><span class="p">():</span>
-    <span class="n">credentials</span> <span class="o">=</span> <span class="n">CensusCredentials</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;my-census-credentials&quot;</span><span class="p">)</span>
-    <span class="n">trigger_census_sync</span><span class="p">(</span><span class="n">credentials</span><span class="o">=</span><span class="n">credentials</span><span class="p">,</span> <span class="n">sync_id</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-
-<span class="n">trigger_census_sync_run_flow</span><span class="p">()</span>
-</code></pre></div></p>
-
-
-        <details class="quote">
-          <summary>Source code in <code>prefect_census/credentials.py</code></summary>
-          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 8</span>
+      <details class="quote">
+        <summary>Source code in <code>prefect_census/flows.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
@@ -629,199 +576,28 @@ for retrieving the API key.</p></td>
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">CensusCredentials</span><span class="p">(</span><span class="n">CredentialsBlock</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Credentials block for credential use across Census tasks and flows.</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@flow</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">run_census_sync</span><span class="p">(</span><span class="n">census_sync</span><span class="p">:</span> <span class="n">CensusSync</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A flow for triggering a Census sync run and waiting for completion.</span>
 
-<span class="sd">    Attributes:</span>
-<span class="sd">        api_key: API key to authenticate with the Census</span>
-<span class="sd">            API. Refer to the [Census authentication docs](</span>
-<span class="sd">            https://docs.getcensus.com/basics/api#getting-api-access)</span>
-<span class="sd">            for retrieving the API key.</span>
-
-<span class="sd">    Examples:</span>
-<span class="sd">        Load stored Census credentials:</span>
-<span class="sd">        ```python</span>
-<span class="sd">        from prefect_census import CensusCredentials</span>
-
-<span class="sd">        census_creds = CensusCredentials.load(&quot;BLOCK_NAME&quot;)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        Use CensusCredentials instance to trigger a sync run:</span>
-<span class="sd">        ```python</span>
-<span class="sd">        import asyncio</span>
-<span class="sd">        from prefect import flow</span>
-<span class="sd">        from prefect_census import CensusCredentials</span>
-
-<span class="sd">        credentials = CensusCredentials(api_key=&quot;my_api_key&quot;)</span>
-
-<span class="sd">        @flow</span>
-<span class="sd">        async def trigger_sync_run_flow():</span>
-<span class="sd">            async with credentials.get_client() as client:</span>
-<span class="sd">                await client.trigger_sync_run(sync_id=42)</span>
-
-<span class="sd">        asyncio.run(trigger_sync_run_flow())</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        Load saved Census credentials within a flow:</span>
-<span class="sd">        ```python</span>
-<span class="sd">        from prefect import flow</span>
-
-<span class="sd">        from prefect_census import CensusCredentials</span>
-<span class="sd">        from prefect_census.syncs import trigger_census_sync</span>
-
-<span class="sd">        @flow</span>
-<span class="sd">        def trigger_census_sync_run_flow():</span>
-<span class="sd">            credentials = CensusCredentials.load(&quot;my-census-credentials&quot;)</span>
-<span class="sd">            trigger_census_sync(credentials=credentials, sync_id=42)</span>
-
-<span class="sd">        trigger_census_sync_run_flow()</span>
-<span class="sd">        ```</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">_block_type_name</span> <span class="o">=</span> <span class="s2">&quot;Census Credentials&quot;</span>
-    <span class="n">_documentation_url</span> <span class="o">=</span> <span class="s2">&quot;https://prefecthq.github.io/prefect-census/credentials/&quot;</span>
-    <span class="n">_logo_url</span> <span class="o">=</span> <span class="s2">&quot;https://images.ctfassets.net/gm98wzqotmnx/3oznRx2UFkd2XyqNkEZpzB/4e0967a828aec5e2527cedadf8d24e8a/llmjpn8a0pgu8szjmnyi.webp?h=250&quot;</span>  <span class="c1"># noqa</span>
-
-    <span class="n">api_key</span><span class="p">:</span> <span class="n">SecretStr</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-        <span class="o">...</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;API Key&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;API key to authenticate with the Census API.&quot;</span>
-    <span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">get_client</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CensusClient</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Provides an authenticated client for working with the Census API.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            A authenticated Census API client</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">CensusClient</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="o">.</span><span class="n">get_secret_value</span><span class="p">())</span>
-</code></pre></div></td></tr></table></div>
-        </details>
-
-  
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-<h4 id="prefect_census.credentials.CensusCredentials-functions">Functions</h4>
-
-<div class="doc doc-object doc-function">
-
-
-
-<h5 id="prefect_census.credentials.CensusCredentials.get_client" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">get_client</span></code>
-
-</h5>
-
-
-  <div class="doc doc-contents ">
-  
-      <p>Provides an authenticated client for working with the Census API.</p>
-
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-internal" title="prefect_census.client.CensusClient" href="../client/#prefect_census.client.CensusClient">CensusClient</a></code>
-          </td>
-          <td><p>A authenticated Census API client</p></td>
-        </tr>
-    </tbody>
-  </table>
-
-      <details class="quote">
-        <summary>Source code in <code>prefect_census/credentials.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_client</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CensusClient</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Provides an authenticated client for working with the Census API.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        census_sync: The Census sync job block to trigger.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        A authenticated Census API client</span>
+<span class="sd">        The result of the sync run.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">CensusClient</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="o">.</span><span class="n">get_secret_value</span><span class="p">())</span>
+    <span class="n">census_sync_run</span> <span class="o">=</span> <span class="k">await</span> <span class="n">task</span><span class="p">(</span><span class="n">census_sync</span><span class="o">.</span><span class="n">trigger</span><span class="o">.</span><span class="n">aio</span><span class="p">)(</span><span class="n">census_sync</span><span class="p">)</span>
+
+    <span class="n">sync_status</span> <span class="o">=</span> <span class="k">await</span> <span class="n">task</span><span class="p">(</span><span class="n">census_sync_run</span><span class="o">.</span><span class="n">wait_for_completion</span><span class="o">.</span><span class="n">aio</span><span class="p">)(</span><span class="n">census_sync_run</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="k">await</span> <span class="n">task</span><span class="p">(</span><span class="n">census_sync_run</span><span class="o">.</span><span class="n">fetch_result</span><span class="o">.</span><span class="n">aio</span><span class="p">)(</span>
+        <span class="n">census_sync_run</span><span class="p">,</span> <span class="n">wait_for</span><span class="o">=</span><span class="p">[</span><span class="n">sync_status</span><span class="p">]</span>
+    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
       </details>
   </div>
 
 </div>
-
-
-
-  </div>
-
-  </div>
-
-</div>
-
 
 
 
