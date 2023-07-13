@@ -2,27 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://PrefectHQ.github.io/prefect-census/</loc>
-         <lastmod>2023-02-06</lastmod>
+         <lastmod>2023-07-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PrefectHQ.github.io/prefect-census/client/</loc>
-         <lastmod>2023-02-06</lastmod>
+         <lastmod>2023-07-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PrefectHQ.github.io/prefect-census/credentials/</loc>
-         <lastmod>2023-02-06</lastmod>
+         <lastmod>2023-07-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PrefectHQ.github.io/prefect-census/flows/</loc>
-         <lastmod>2023-02-06</lastmod>
+         <lastmod>2023-07-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PrefectHQ.github.io/prefect-census/syncs/</loc>
-         <lastmod>2023-02-06</lastmod>
+         <lastmod>2023-07-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
