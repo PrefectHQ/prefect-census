@@ -21,6 +21,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://PrefectHQ.github.io/prefect-census/runs/</loc>
+         <lastmod>2023-07-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://PrefectHQ.github.io/prefect-census/syncs/</loc>
          <lastmod>2023-07-13</lastmod>
          <changefreq>daily</changefreq>
