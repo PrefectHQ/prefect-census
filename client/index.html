@@ -17,7 +17,7 @@
         <link rel="next" href="../credentials/">
       
       <link rel="icon" href="../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
@@ -581,7 +581,7 @@
 
 
 <h1 id="prefect_census.client" class="doc doc-heading">
-          <code>prefect_census.client</code>
+            <code>prefect_census.client</code>
 
 
 </h1>
@@ -606,7 +606,7 @@
 
 
 <h3 id="prefect_census.client.CensusClient" class="doc doc-heading">
-        <code>CensusClient</code>
+          <code>CensusClient</code>
 
 
 </h3>
@@ -616,6 +616,8 @@
 
   
       <p>Client for interacting with the Census API.</p>
+
+
 
   <p><strong>Attributes:</strong></p>
   <table>
@@ -641,10 +643,9 @@
     </tbody>
   </table>
 
-
-        <details class="quote">
-          <summary>Source code in <code>prefect_census/client.py</code></summary>
-          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  9</span>
+            <details class="quote">
+              <summary>Source code in <code>prefect_census/client.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  9</span>
 <span class="normal"> 10</span>
 <span class="normal"> 11</span>
 <span class="normal"> 12</span>
@@ -890,7 +891,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_closed</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="fm">__aexit__</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
-        </details>
+            </details>
 
   
 
@@ -903,6 +904,7 @@
 
 
 <h4 id="prefect_census.client.CensusClient-functions">Functions</h4>
+
 
 <div class="doc doc-object doc-function">
 
@@ -922,9 +924,9 @@
   
       <p>Async context manager entry method.</p>
 
-      <details class="quote">
-        <summary>Source code in <code>prefect_census/client.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">116</span>
+          <details class="quote">
+            <summary>Source code in <code>prefect_census/client.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">116</span>
 <span class="normal">117</span>
 <span class="normal">118</span>
 <span class="normal">119</span>
@@ -946,10 +948,11 @@
     <span class="bp">self</span><span class="o">.</span><span class="n">_started</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="k">return</span> <span class="bp">self</span>
 </code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -969,9 +972,9 @@
   
       <p>Async context manager exit method.</p>
 
-      <details class="quote">
-        <summary>Source code in <code>prefect_census/client.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">128</span>
+          <details class="quote">
+            <summary>Source code in <code>prefect_census/client.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">128</span>
 <span class="normal">129</span>
 <span class="normal">130</span>
 <span class="normal">131</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="fm">__aexit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">exc</span><span class="p">):</span>
@@ -979,10 +982,11 @@
     <span class="bp">self</span><span class="o">.</span><span class="n">_closed</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="fm">__aexit__</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -1001,6 +1005,8 @@
   <div class="doc doc-contents ">
   
       <p>Call an endpoint in the Census API.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1073,6 +1079,8 @@ appended onto the base URL as determined by the client configuration.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -1117,9 +1125,9 @@ appended onto the base URL as determined by the client configuration.</p>
 <span class="n">my_flow</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 </code></pre></div>
 </details>
-      <details class="quote">
-        <summary>Source code in <code>prefect_census/client.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">29</span>
+          <details class="quote">
+            <summary>Source code in <code>prefect_census/client.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">29</span>
 <span class="normal">30</span>
 <span class="normal">31</span>
 <span class="normal">32</span>
@@ -1217,10 +1225,11 @@ appended onto the base URL as determined by the client configuration.</p>
     <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">response</span>
 </code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -1239,6 +1248,8 @@ appended onto the base URL as determined by the client configuration.</p>
   <div class="doc doc-contents ">
   
       <p>Sends a request to the <a href="https://docs.getcensus.com/basics/api/syncs#get-syncs-id">get sync id info endpoint</a></p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1268,6 +1279,8 @@ appended onto the base URL as determined by the client configuration.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -1290,9 +1303,9 @@ appended onto the base URL as determined by the client configuration.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>prefect_census/client.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">79</span>
+          <details class="quote">
+            <summary>Source code in <code>prefect_census/client.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">79</span>
 <span class="normal">80</span>
 <span class="normal">81</span>
 <span class="normal">82</span>
@@ -1322,10 +1335,11 @@ appended onto the base URL as determined by the client configuration.</p>
         <span class="n">path</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;/sync_runs/</span><span class="si">{</span><span class="n">run_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
     <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -1345,6 +1359,8 @@ appended onto the base URL as determined by the client configuration.</p>
   
       <p>Sends a request to the <a href="https://docs.getcensus.com/basics/api/sync-runs">trigger sync run endpoint</a>
 to initiate a sync run.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1388,6 +1404,8 @@ to initiate a sync run.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -1410,9 +1428,9 @@ to initiate a sync run.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>prefect_census/client.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 95</span>
+          <details class="quote">
+            <summary>Source code in <code>prefect_census/client.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 95</span>
 <span class="normal"> 96</span>
 <span class="normal"> 97</span>
 <span class="normal"> 98</span>
@@ -1452,7 +1470,7 @@ to initiate a sync run.</p>
         <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;force_full_sync&quot;</span><span class="p">:</span> <span class="n">force_full_sync</span><span class="p">},</span>
     <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>

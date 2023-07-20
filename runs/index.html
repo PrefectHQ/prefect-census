@@ -17,7 +17,7 @@
         <link rel="next" href="../syncs/">
       
       <link rel="icon" href="../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
@@ -635,7 +635,7 @@
 
 
 <h1 id="prefect_census.runs" class="doc doc-heading">
-          <code>prefect_census.runs</code>
+            <code>prefect_census.runs</code>
 
 
 </h1>
@@ -660,27 +660,26 @@
 
 
 <h3 id="prefect_census.runs.CensusGetSyncRunInfoFailed" class="doc doc-heading">
-        <code>CensusGetSyncRunInfoFailed</code>
+          <code>CensusGetSyncRunInfoFailed</code>
 
 
 </h3>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code>RuntimeError</code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code>RuntimeError</code></p>
 
   
       <p>Used to idicate retrieve sync run info.</p>
 
-
-        <details class="quote">
-          <summary>Source code in <code>prefect_census/runs.py</code></summary>
-          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">25</span>
+            <details class="quote">
+              <summary>Source code in <code>prefect_census/runs.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">25</span>
 <span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">CensusGetSyncRunInfoFailed</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Used to idicate retrieve sync run info.&quot;&quot;&quot;</span>
 </code></pre></div></td></tr></table></div>
-        </details>
+            </details>
 
   </div>
 
@@ -691,27 +690,26 @@
 
 
 <h3 id="prefect_census.runs.CensusSyncRunCancelled" class="doc doc-heading">
-        <code>CensusSyncRunCancelled</code>
+          <code>CensusSyncRunCancelled</code>
 
 
 </h3>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code>Exception</code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code>Exception</code></p>
 
   
       <p>Raised when a triggered sync run is cancelled</p>
 
-
-        <details class="quote">
-          <summary>Source code in <code>prefect_census/runs.py</code></summary>
-          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">29</span>
+            <details class="quote">
+              <summary>Source code in <code>prefect_census/runs.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">29</span>
 <span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">CensusSyncRunCancelled</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Raised when a triggered sync run is cancelled&quot;&quot;&quot;</span>
 </code></pre></div></td></tr></table></div>
-        </details>
+            </details>
 
   </div>
 
@@ -722,27 +720,26 @@
 
 
 <h3 id="prefect_census.runs.CensusSyncRunFailed" class="doc doc-heading">
-        <code>CensusSyncRunFailed</code>
+          <code>CensusSyncRunFailed</code>
 
 
 </h3>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code>RuntimeError</code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code>RuntimeError</code></p>
 
   
       <p>Raised when unable to retrieve Census sync run</p>
 
-
-        <details class="quote">
-          <summary>Source code in <code>prefect_census/runs.py</code></summary>
-          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">14</span>
+            <details class="quote">
+              <summary>Source code in <code>prefect_census/runs.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">14</span>
 <span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">CensusSyncRunFailed</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Raised when unable to retrieve Census sync run&quot;&quot;&quot;</span>
 </code></pre></div></td></tr></table></div>
-        </details>
+            </details>
 
   </div>
 
@@ -753,23 +750,22 @@
 
 
 <h3 id="prefect_census.runs.CensusSyncRunStatus" class="doc doc-heading">
-        <code>CensusSyncRunStatus</code>
+          <code>CensusSyncRunStatus</code>
 
 
 </h3>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><span title="enum.Enum">Enum</span></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="enum.Enum">Enum</span></code></p>
 
   
       <p>Census sync statuses.</p>
 
-
-        <details class="quote">
-          <summary>Source code in <code>prefect_census/runs.py</code></summary>
-          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">33</span>
+            <details class="quote">
+              <summary>Source code in <code>prefect_census/runs.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">33</span>
 <span class="normal">34</span>
 <span class="normal">35</span>
 <span class="normal">36</span>
@@ -789,7 +785,8 @@
 <span class="normal">50</span>
 <span class="normal">51</span>
 <span class="normal">52</span>
-<span class="normal">53</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">CensusSyncRunStatus</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="normal">53</span>
+<span class="normal">54</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">CensusSyncRunStatus</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Census sync statuses.&quot;&quot;&quot;</span>
 
     <span class="n">CANCELLED</span> <span class="o">=</span> <span class="s2">&quot;cancelled&quot;</span>
@@ -797,6 +794,7 @@
     <span class="n">FAILED</span> <span class="o">=</span> <span class="s2">&quot;failed&quot;</span>
     <span class="n">COMPLETED</span> <span class="o">=</span> <span class="s2">&quot;completed&quot;</span>
     <span class="n">SKIPPED</span> <span class="o">=</span> <span class="s2">&quot;skipped&quot;</span>
+    <span class="n">QUEUED</span> <span class="o">=</span> <span class="s2">&quot;queued&quot;</span>
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">is_terminal_status_code</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">status_code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -811,7 +809,7 @@
             <span class="bp">cls</span><span class="o">.</span><span class="n">SKIPPED</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
         <span class="p">]</span>
 </code></pre></div></td></tr></table></div>
-        </details>
+            </details>
 
   
 
@@ -824,6 +822,7 @@
 
 
 <h4 id="prefect_census.runs.CensusSyncRunStatus-functions">Functions</h4>
+
 
 <div class="doc doc-object doc-function">
 
@@ -844,10 +843,9 @@
       <p>Returns True if a status code is terminal for a sync run.
 Returns False otherwise.</p>
 
-      <details class="quote">
-        <summary>Source code in <code>prefect_census/runs.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">42</span>
-<span class="normal">43</span>
+          <details class="quote">
+            <summary>Source code in <code>prefect_census/runs.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">43</span>
 <span class="normal">44</span>
 <span class="normal">45</span>
 <span class="normal">46</span>
@@ -857,7 +855,8 @@ Returns False otherwise.</p>
 <span class="normal">50</span>
 <span class="normal">51</span>
 <span class="normal">52</span>
-<span class="normal">53</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="normal">53</span>
+<span class="normal">54</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
 <span class="k">def</span> <span class="nf">is_terminal_status_code</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">status_code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns True if a status code is terminal for a sync run.</span>
@@ -870,7 +869,7 @@ Returns False otherwise.</p>
         <span class="bp">cls</span><span class="o">.</span><span class="n">SKIPPED</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
     <span class="p">]</span>
 </code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
@@ -888,24 +887,23 @@ Returns False otherwise.</p>
 
 
 <h3 id="prefect_census.runs.CensusSyncRunTimeout" class="doc doc-heading">
-        <code>CensusSyncRunTimeout</code>
+          <code>CensusSyncRunTimeout</code>
 
 
 </h3>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code>RuntimeError</code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code>RuntimeError</code></p>
 
   
       <p>Raised when a triggered job run does not complete in the configured max
 wait seconds</p>
 
-
-        <details class="quote">
-          <summary>Source code in <code>prefect_census/runs.py</code></summary>
-          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">18</span>
+            <details class="quote">
+              <summary>Source code in <code>prefect_census/runs.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
 <span class="normal">21</span>
@@ -915,12 +913,13 @@ wait seconds</p>
 <span class="sd">    wait seconds</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 </code></pre></div></td></tr></table></div>
-        </details>
+            </details>
 
   </div>
 
 </div>
 <h2 id="prefect_census.runs-functions">Functions</h2>
+
 
 <div class="doc doc-object doc-function">
 
@@ -939,6 +938,8 @@ wait seconds</p>
   <div class="doc doc-contents ">
   
       <p>A task to retrieve information a Census sync run.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -981,6 +982,8 @@ wait seconds</p>
         </tr>
     </tbody>
   </table>
+
+
 
   <p><strong>Returns:</strong></p>
   <table>
@@ -1048,10 +1051,9 @@ wait seconds</p>
 <span class="n">get_sync_run_info_flow</span><span class="p">()</span>
 </code></pre></div></p>
 </details>
-      <details class="quote">
-        <summary>Source code in <code>prefect_census/runs.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 56</span>
-<span class="normal"> 57</span>
+          <details class="quote">
+            <summary>Source code in <code>prefect_census/runs.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 57</span>
 <span class="normal"> 58</span>
 <span class="normal"> 59</span>
 <span class="normal"> 60</span>
@@ -1123,7 +1125,8 @@ wait seconds</p>
 <span class="normal">126</span>
 <span class="normal">127</span>
 <span class="normal">128</span>
-<span class="normal">129</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@task</span><span class="p">(</span>
+<span class="normal">129</span>
+<span class="normal">130</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@task</span><span class="p">(</span>
     <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Get Census sync run details&quot;</span><span class="p">,</span>
     <span class="n">description</span><span class="o">=</span><span class="p">(</span>
         <span class="s2">&quot;Retrieves details of a Census sync run&quot;</span> <span class="s2">&quot;for the sync with the given sync_id.&quot;</span>
@@ -1198,10 +1201,11 @@ wait seconds</p>
 
     <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -1220,6 +1224,8 @@ wait seconds</p>
   <div class="doc doc-contents ">
   
       <p>Wait for the given Census sync run to finish running.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1292,6 +1298,8 @@ run completion.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Raises:</strong></p>
   <table>
     <thead>
@@ -1313,6 +1321,8 @@ run completion.</p>
         </tr>
     </tbody>
   </table>
+
+
 
   <p><strong>Returns:</strong></p>
   <table>
@@ -1371,10 +1381,9 @@ in the following shape:
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>prefect_census/runs.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">132</span>
-<span class="normal">133</span>
+          <details class="quote">
+            <summary>Source code in <code>prefect_census/runs.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">133</span>
 <span class="normal">134</span>
 <span class="normal">135</span>
 <span class="normal">136</span>
@@ -1455,7 +1464,8 @@ in the following shape:
 <span class="normal">211</span>
 <span class="normal">212</span>
 <span class="normal">213</span>
-<span class="normal">214</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@flow</span><span class="p">(</span>
+<span class="normal">214</span>
+<span class="normal">215</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@flow</span><span class="p">(</span>
     <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Wait for Census sync run&quot;</span><span class="p">,</span>
     <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Waits for the Census sync run to finish running.&quot;</span><span class="p">,</span>
 <span class="p">)</span>
@@ -1539,7 +1549,7 @@ in the following shape:
         <span class="sa">f</span><span class="s2">&quot;for sync run with ID </span><span class="si">{</span><span class="n">run_id</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
