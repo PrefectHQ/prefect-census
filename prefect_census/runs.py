@@ -38,6 +38,7 @@ class CensusSyncRunStatus(Enum):
     FAILED = "failed"
     COMPLETED = "completed"
     SKIPPED = "skipped"
+    QUEUED = "queued"
 
     @classmethod
     def is_terminal_status_code(cls, status_code: str) -> bool:

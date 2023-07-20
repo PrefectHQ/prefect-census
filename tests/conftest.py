@@ -75,6 +75,10 @@ def mock_successful_sync_with_wait(respx_mock):
         side_effect=[
             Response(
                 200,
+                json={"data": {"id": 5, "sync_run_id": 12345, "status": "queued"}},
+            ),
+            Response(
+                200,
                 json={"data": {"id": 5, "sync_run_id": 12345, "status": "working"}},
             ),
             Response(
