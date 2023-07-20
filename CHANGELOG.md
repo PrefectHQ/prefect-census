@@ -19,6 +19,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+## 0.1.2
+
+Released on July 20th, 2023.
+
+### Added
+- `CensusSyncRunStatus` enum extended to include the `queued` status value - [#28](https://github.com/PrefectHQ/prefect-census/pull/28)
+
 ## 0.1.1
 
 Released on February 2nd, 2023.
