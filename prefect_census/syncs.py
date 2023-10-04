@@ -7,7 +7,12 @@ from prefect import flow, task
 from prefect.blocks.abstract import JobBlock, JobRun
 from prefect.logging import get_run_logger
 from prefect.utilities.asyncutils import sync_compatible
-from pydantic import BaseModel, Field
+from pydantic import VERSION as PYDANTIC_VERSION
+
+if PYDANTIC_VERSION.startswith("2."):
+    from pydantic.v1 import BaseModel, Field
+else:
+    from pydantic import BaseModel, Field
 
 from prefect_census.credentials import CensusCredentials
 from prefect_census.runs import (
