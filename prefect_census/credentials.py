@@ -62,7 +62,7 @@ class CensusCredentials(CredentialsBlock):
 
     _block_type_name = "Census Credentials"
     _documentation_url = "https://prefecthq.github.io/prefect-census/credentials/"
-    _logo_url = "https://images.ctfassets.net/gm98wzqotmnx/3oznRx2UFkd2XyqNkEZpzB/4e0967a828aec5e2527cedadf8d24e8a/llmjpn8a0pgu8szjmnyi.webp?h=250"  # noqa
+    _logo_url = "https://cdn.sanity.io/images/3ugk85nk/production/b2f805555c778f37f861b67c4a861908f66a6e35-700x700.png"  # noqa
 
     api_key: SecretStr = Field(
         ..., title="API Key", description="API key to authenticate with the Census API."
